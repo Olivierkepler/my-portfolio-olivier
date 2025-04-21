@@ -57,13 +57,15 @@ export default function SubNav({ menus }: SubNavProps) {
   };
 
   return (
-    <div className="relative z-50 w-full border-b border-gray-200 dark:border-gray-800  dark:bg-black px-4 sm:px-6 md:px-10 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div className="relative z-50 w-full border-b border-gray-200 dark:border-gray-800  dark:bg-black px-4 sm:px-6 md:px-10 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       {/* Left: Mobile title and menu button */}
       <div className="flex justify-between items-center sm:hidden w-full">
-        <div className="text-lg font-bold text-gray-800 dark:text-gray-200">Navigation</div>
+        <div className="text-lg font-bold text-gray-800 dark:text-gray-200">
+            <SearchBar />
+        </div>
         <button
           onClick={() => setDrawerOpen(true)}
-          className="inline-flex items-center gap-1 px-4 py-2 border rounded-md text-sm bg-gray-100 dark:bg-gray-800"
+          className="inline-flex items-center gap-1 px-4  border rounded-md text-sm bg-gray-100 dark:bg-gray-800"
           title="Open menu"
         >
           <Menu size={18} />
@@ -87,7 +89,7 @@ export default function SubNav({ menus }: SubNavProps) {
             </button>
 
             {openMenu === menu.title && (
-              <ul className="absolute left-0 mt-2 w-[22rem] sm:w-[26rem] grid grid-cols-2 divide-x divide-gray-200 dark:divide-gray-700 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl animate-fade-in z-40">
+              <ul className="absolute left-0 mt-6 w-[22rem] sm:w-[26rem] grid grid-cols-2 divide-x divide-gray-200 dark:divide-gray-700 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl animate-fade-in z-40">
                 {['left', 'right'].map((col, i) => (
                   <div key={col} className="flex flex-col">
                     {menu.items
@@ -101,7 +103,7 @@ export default function SubNav({ menus }: SubNavProps) {
                             onClick={() => handleLinkClick(item.href)}
                             title={item.tooltip ?? item.label}
                             className={clsx(
-                              'flex w-full items-center gap-2 px-4 py-2 text-sm text-left transition',
+                              'flex w-full items-center gap-2 px-6 py-6 text-sm text-left transition',
                               'hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500',
                               pathname === item.href
                                 ? 'font-semibold text-green-600 dark:text-green-400'
