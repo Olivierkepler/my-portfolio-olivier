@@ -68,7 +68,7 @@ export default function SubNav({ menus }: SubNavProps) {
           className="inline-flex items-center gap-1 px-4  text-sm bg-gray-100 dark:bg-gray-800"
           title="Open menu"
         >
-          {/* <Menu size={18} /> */}
+          <Menu size={18} />
         </button>
       </div>
 
