@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { IconArrowNarrowRight, IconMenu2 } from '@tabler/icons-react';
-import SearchBar from '@/components/SearchBar'; // 👈 Importing SearchBar
+
 import ThemeToggle from '@/components/ThemeToggle';
 
 /** Links */

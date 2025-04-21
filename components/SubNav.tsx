@@ -5,11 +5,11 @@ import { useRouter, usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import {
   ChevronDown,
-//   FolderKanban,
-//   Brain,
-//   Smartphone,
-//   Clock,
-//   Star,
+  FolderKanban,
+  Brain,
+  Smartphone,
+  Clock,
+  Star,
   Menu,
   X,
 } from 'lucide-react';
