@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { IconArrowNarrowRight, IconMenu2 } from '@tabler/icons-react';
 import SearchBar from '@/components/SearchBar'; // 👈 Importing SearchBar
+import ThemeToggle from '@/components/ThemeToggle';
 
 /** Links */
 interface NavLink {
@@ -164,23 +165,23 @@ interface HeaderProps {
 export function Header({ navLinks = links }: HeaderProps) {
   return (
     <header className="container mx-auto flex flex-wrap items-center justify-between gap-4 py-4 px-6">
-      {/* Logo */}
       <a href="#">
         <Logo />
       </a>
 
-      {/* SearchBar in center */}
       <div className="flex-1 max-w-md w-full">
         <SearchBar />
       </div>
 
-      {/* Nav links */}
-      <Navigation navLinks={navLinks} />
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        <Navigation navLinks={navLinks} />
+      </div>
+
       <Navigation mobile navLinks={navLinks} />
     </header>
   );
 }
-
 /** Page */
 export default function RightNavigation() {
   return (
