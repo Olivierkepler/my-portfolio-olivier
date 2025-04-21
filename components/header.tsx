@@ -1,7 +1,8 @@
-'use client'
-import { useState } from 'react';
+'use client';
 
+import { useState } from 'react';
 import { IconArrowNarrowRight, IconMenu2 } from '@tabler/icons-react';
+import SearchBar from '@/components/SearchBar'; // 👈 Importing SearchBar
 
 /** Links */
 interface NavLink {
@@ -11,44 +12,26 @@ interface NavLink {
 }
 
 const links: NavLink[] = [
-  {
-    title: 'Home',
-    href: '/',
-  },
+  { title: 'Home', href: '/' },
   {
     title: 'Services',
     href: '#',
     children: [
-      {
-        title: 'Web development',
-        href: '/services/web-development',
-      },
-      {
-        title: 'Digital marketing',
-        href: '/services/digital-marketing',
-      },
-      {
-        title: 'Brand strategy',
-        href: '/services/brand-strategy',
-      },
+      { title: 'Web development', href: '/services/web-development' },
+      { title: 'Digital marketing', href: '/services/digital-marketing' },
+      { title: 'Brand strategy', href: '/services/brand-strategy' },
     ],
   },
-  {
-    title: 'About',
-    href: '/about',
-  },
-  {
-    title: 'Contact',
-    href: '/contact',
-  },
+  { title: 'About', href: '/about' },
+  { title: 'Contact', href: '/contact' },
 ];
 
 /** Logo */
 function Logo() {
   return (
     <div className="w-full text-center text-lg font-bold sm:w-fit sm:text-left">
-      <span className="text-cyan-500">Tailwind</span>{' '}
-      <span className="dark:text-slate-100">Snippets</span>
+      <span className="text-cyan-500">Olivier</span>{' '}
+      <span className="dark:text-slate-100">Kepler</span>
     </div>
   );
 }
@@ -180,10 +163,18 @@ interface HeaderProps {
 
 export function Header({ navLinks = links }: HeaderProps) {
   return (
-    <header className="container mx-auto flex w-full items-center justify-between py-4 px-6">
+    <header className="container mx-auto flex flex-wrap items-center justify-between gap-4 py-4 px-6">
+      {/* Logo */}
       <a href="#">
         <Logo />
       </a>
+
+      {/* SearchBar in center */}
+      <div className="flex-1 max-w-md w-full">
+        <SearchBar />
+      </div>
+
+      {/* Nav links */}
       <Navigation navLinks={navLinks} />
       <Navigation mobile navLinks={navLinks} />
     </header>
@@ -194,7 +185,7 @@ export function Header({ navLinks = links }: HeaderProps) {
 export default function RightNavigation() {
   return (
     <div className="bg-white">
-     <Header />
+      <Header />
     </div>
   );
 }
