@@ -57,7 +57,7 @@ export default function SubNav({ menus }: SubNavProps) {
   };
 
   return (
-    <div className="relative z-50 w-full border-b border-gray-200 dark:border-gray-800  dark:bg-black px-4 sm:px-6 md:px-10 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div className="relative z-50 w-full  dark:bg-black px-4 sm:px-6 md:px-10 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       {/* Left: Mobile title and menu button */}
       <div className="flex justify-between items-center sm:hidden w-full">
         <div className="text-lg font-bold text-gray-800 dark:text-gray-200">
@@ -65,10 +65,10 @@ export default function SubNav({ menus }: SubNavProps) {
         </div>
         <button
           onClick={() => setDrawerOpen(true)}
-          className="inline-flex items-center gap-1 px-4  border rounded-md text-sm bg-gray-100 dark:bg-gray-800"
+          className="inline-flex items-center gap-1 px-4  text-sm bg-gray-100 dark:bg-gray-800"
           title="Open menu"
         >
-          <Menu size={18} />
+          {/* <Menu size={18} /> */}
         </button>
       </div>
 
@@ -81,15 +81,16 @@ export default function SubNav({ menus }: SubNavProps) {
               onClick={() => setOpenMenu(openMenu === menu.title ? null : menu.title)}
               className={clsx(
                 'flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-md',
-                'bg-gray-100 hover:bg-gray-200 text-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100'
+                'text-orange-300'
               )}
             >
               {menu.title}
               <ChevronDown className="w-4 h-4" />
             </button>
+         
 
             {openMenu === menu.title && (
-              <ul className="absolute left-0 mt-6 w-[22rem] sm:w-[26rem] grid grid-cols-2 divide-x divide-gray-200 dark:divide-gray-700 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl animate-fade-in z-40">
+              <ul className="absolute left-0 mt-6 w-[22rem] sm:w-[26rem] grid grid-cols-2 divide-x divide-gray-200 dark:divide-gray-700 rounded-md  bg-white dark:bg-gray-900 shadow-xl animate-fade-in z-40">
                 {['left', 'right'].map((col, i) => (
                   <div key={col} className="flex flex-col">
                     {menu.items
@@ -140,11 +141,11 @@ export default function SubNav({ menus }: SubNavProps) {
       <div
         ref={drawerRef}
         className={clsx(
-          'fixed top-0 left-0 h-full w-[90%] max-w-sm bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 shadow-xl z-50 transition-transform duration-300',
+          'fixed top-0 left-0 h-full w-[90%] max-w-sm bg-white dark:bg-gray-900  shadow-xl z-50 transition-transform duration-300',
           drawerOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
-        <div className="flex justify-between items-center px-4 py-3 border-b dark:border-gray-700">
+        <div className="flex justify-between items-center px-4 py-3 ">
           <h2 className="text-md font-semibold text-gray-800 dark:text-gray-100">Menu</h2>
           <button onClick={() => setDrawerOpen(false)} title="Close">
             <X size={20} className="text-gray-600 dark:text-gray-300" />
@@ -156,7 +157,7 @@ export default function SubNav({ menus }: SubNavProps) {
           {menus.map((menu) => (
             <div key={menu.title}>
               <p className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">{menu.title}</p>
-              <div className="grid grid-cols-2 gap-x-4 border-t border-gray-200 dark:border-gray-700 pt-2">
+              <div className="grid grid-cols-2 gap-x-4  pt-2">
                 {menu.items.map((item) => (
                   <button
                     key={item.href}
