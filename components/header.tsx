@@ -193,15 +193,8 @@ export function Header({ navLinks = links }: HeaderProps) {
 /** Page */
 export default function RightNavigation() {
   return (
-    <div className="h-64 dark:text-slate-200">
-      <Header />
-      <p className="container mx-auto px-6 py-8">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id varius
-        turpis. Nullam ut tincidunt tellus. Nunc fermentum odio vitae turpis
-        fermentum vulputate. Morbi vel malesuada felis. Fusce vestibulum nibh id
-        erat volutpat ullamcorper vitae sed neque. Curabitur vel lobortis metus,
-        at mollis turpis.
-      </p>
+    <div className="bg-white">
+     <Header />
     </div>
   );
 }
