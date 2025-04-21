@@ -29,7 +29,7 @@ const fadeUp = {
 
 export default function HeroInfo() {
   const router = useRouter()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <motion.section
@@ -136,7 +136,7 @@ export default function HeroInfo() {
                 damping: 10
               }
             }}
-            onClick={() => setIsMenuOpen(true)}
+            // onClick={() => setIsMenuOpen(true)}
             className="rounded-lg bg-slate-900 px-6 py-3 text-base text-white shadow-lg hover:bg-orange-300 hover:text-black dark:bg-orange-300 dark:text-black"
           >
             Open menu
