@@ -169,9 +169,6 @@ export function Header({ navLinks = links }: HeaderProps) {
         <Logo />
       </a>
 
-      {/* <div className="flex-1 max-w-md w-full">
-        <SearchBar />
-      </div> */}
 
       <div className="flex items-center gap-2">
         <ThemeToggle />
