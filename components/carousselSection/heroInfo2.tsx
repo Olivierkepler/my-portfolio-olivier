@@ -59,7 +59,7 @@ export default function HeroInfo() {
         className="mr-4 w-full text-center sm:w-1/2 sm:text-left"
       >
         <h1 className="mb-6 text-3xl font-bold leading-tight dark:text-slate-50 md:text-4xl">
-          Hi, I’m Olivier Kepler François
+          Hi, I m Olivier Kepler François
         </h1>
         <p className="mb-2 leading-relaxed text-slate-700 dark:text-slate-400">
           Engineering and Computer Science student passionate about solving real-world problems through technology.
