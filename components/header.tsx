@@ -71,7 +71,7 @@ function Navigation({ mobile = false, navLinks = [] }: NavigationProps) {
   const [mobileNavigationOpened, setMobileNavigationOpened] = useState(false);
 
   const navClassName = `
-    bg-white text-base dark:bg-slate-900
+  text-black dark:text-white
     ${
       mobile
         ? `transition transform -right-1/2 fixed top-0 z-20 h-full w-1/2 overflow-y-auto py-4 sm:hidden ${
