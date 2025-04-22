@@ -26,7 +26,7 @@ export default function HeroInfo() {
 
           {/* 🌟 Logo with smooth zoom + fade-in */}
           <motion.img
-            src="/olivier_logo_green.png"
+            src="/images/olivier_logo_green.png"
             alt="Olivier Logo"
             className="absolute inset-0 rounded-lg sm:rounded-br-[80px] sm:rounded-tl-[120px]"
             initial={{ scale: 1.2, opacity: 0 }}

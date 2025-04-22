@@ -57,7 +57,7 @@ export default function HeroInfo() {
       <div className="mb-8 w-full sm:mb-0 sm:w-1/2 sm:pl-4 md:pl-16">
         <div className="relative">
           <motion.img
-            src="/olivier_logo.png"
+            src="/images/olivier_logo.png"
             alt="Olivier logo"
             className="absolute inset-0 rounded-lg sm:rounded-br-[80px] sm:rounded-tl-[120px]"
             initial={{ x: -50, y: -50, opacity: 0 }}
