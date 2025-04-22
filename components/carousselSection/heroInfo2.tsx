@@ -47,15 +47,18 @@ export default function HeroInfo2() {
       variants={container}
       className="relative isolate overflow-hidden w-full px-8 py-20 flex flex-col items-center text-center sm:text-left sm:items-start bg-gradient-to-br from-indigo-900 to-indigo-800"
     >
-      {/* 🌌 Radial Gradient Overlay */}
-      <div className="absolute inset-0 -z-10 overflow-hidden w-full h-full">
-        <div className="absolute top-[-150px] left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] bg-emerald-500 opacity-20 rounded-full blur-3xl mix-blend-screen"></div>
-        <div className="absolute bottom-[-150px] right-1/2 transform translate-x-1/2 w-[500px] h-[500px] bg-emerald-400 opacity-30 rounded-full blur-2xl mix-blend-screen"></div>
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 left-1/4 w-64 h-64 border border-dashed border-gray-300 dark:border-slate-600 rounded-xl rotate-12 opacity-20"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-48 h-48 border border-dashed border-gray-300 dark:border-slate-600 rounded-xl -rotate-12 opacity-20"></div>
-        </div>
-      </div>
+    {/* 🌌 Radial Gradient Overlay */}
+<div className="absolute inset-0 -z-10 overflow-hidden w-full h-full">
+  <div className="absolute top-[-150px] left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] bg-emerald-500 opacity-20 rounded-full blur-3xl mix-blend-screen animate-float"></div>
+  <div className="absolute bottom-[-150px] right-1/2 transform translate-x-1/2 w-[500px] h-[500px] bg-emerald-400 opacity-30 rounded-full blur-2xl mix-blend-screen animate-float-reverse"></div>
+
+  {/* Geometric Lines */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute top-1/3 left-1/4 w-64 h-64 border border-dashed border-gray-300 dark:border-slate-600 rounded-xl rotate-12 opacity-20"></div>
+    <div className="absolute bottom-1/3 right-1/4 w-48 h-48 border border-dashed border-gray-300 dark:border-slate-600 rounded-xl -rotate-12 opacity-20"></div>
+  </div>
+</div>
+
 
       {/* 🏆 Heading */}
       <motion.h2
