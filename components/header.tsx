@@ -32,7 +32,7 @@ function Logo() {
   return (
     <div className="w-full text-center text-lg font-bold sm:w-fit sm:text-left">
       <span className="text-cyan-500">Olivier</span>{' '}
-      <span className="dark:text-slate-100">Kepler</span>
+      <span className="dark:text-slate-100">Francois</span>
     </div>
   );
 }

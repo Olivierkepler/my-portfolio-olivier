@@ -54,8 +54,8 @@ const companyLinks = [
   function Logo() {
     return (
       <div className="w-full text-lg font-extrabold md:w-fit md:text-left">
-        <span className="text-violet-500">Unique</span>{' '}
-        <span className="dark:text-slate-400">Fund</span>
+        <span className="text-violet-500">Olivier</span>{' '}
+        <span className="dark:text-slate-400">Francois</span>
       </div>
     );
   }
