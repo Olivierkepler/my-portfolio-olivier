@@ -69,7 +69,7 @@ export default function HeroInfo() {
           <motion.img
             src="/images/meAvatar.webp"
             alt="Olivier Kepler François Avatar"
-            className="relative z-10 rounded-full border-4 border-orange-300 shadow-lg w-64 h-64 object-cover p-8"
+            className="relative z-10 rounded-full border-4 border-orange-300 shadow-lg w-80 h-80 object-cover p-8"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
