@@ -32,9 +32,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           {children}
-          <div className="fixed bottom-0 left-0 right-0">
-          <Footer />
-          </div>
+          <Footer /> 
         </ThemeProvider>
       </body>
     </html>

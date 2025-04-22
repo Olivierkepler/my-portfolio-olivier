@@ -1,7 +1,7 @@
 import Hero from '@/components/carousselSection/hero';
 import SubNav from '@/components/SubNav';
 import { FolderKanban, Brain, Smartphone, Clock, Star } from 'lucide-react';
-
+import Newsletter from '@/components/Newsletter';
 const menus = [
   {
     title: 'Categories',
@@ -28,7 +28,8 @@ export default function Home() {
       <SubNav menus={menus} />
       {/* ... your content */}
 
-<Hero />  
+<Hero />    
+<Newsletter />
       
     </main>
 
