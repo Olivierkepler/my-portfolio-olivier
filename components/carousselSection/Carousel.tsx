@@ -88,7 +88,7 @@ export default function Carousel({ slides, autoPlayInterval = 5000 }: CarouselPr
       </AnimatePresence>
 
       {/* Navigation Buttons */}
-      <div className="absolute inset-0 z-20 flex items-center justify-between p-4 pointer-events-none">
+      <div className="absolute inset-0 z-20 flex items-center justify-between  pointer-events-none">
         <button
           onClick={handlePrevious}
           onMouseEnter={() => setIsPaused(true)}
