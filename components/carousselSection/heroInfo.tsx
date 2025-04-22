@@ -36,7 +36,7 @@ export default function HeroInfo() {
       initial="hidden"
       animate="show"
       variants={container}
-      className="relative isolate container mx-auto pt-50 flex flex-col items-center px-8 py-16 sm:flex-row-reverse sm:px-12"
+      className="relative isolate w-full pt-50 flex flex-col items-center px-8 py-20 sm:flex-row-reverse sm:px-12 bg-gradient-to-br from-cyan-900 to-teal-800"
     >
       {/* Menu Modal */}
       <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
@@ -44,13 +44,15 @@ export default function HeroInfo() {
       {/* Social Links */}
       <SocialLinksVertical />
 
-      {/* Background Animation */}
-      <motion.div
-        className="absolute inset-0 -z-10 hidden dark:block starry-bg"
-        initial={{ opacity: 0, rotate: -5 }}
-        animate={{ opacity: 1, rotate: 0 }}
-        transition={{ duration: 2, ease: 'easeInOut' }}
-      />
+      {/* 🌊 Fancy Animated Aqua/Teal Blobs */}
+      <div className="absolute inset-0 -z-10 overflow-hidden w-full h-full">
+        <div className="absolute top-[-120px] left-1/2 transform -translate-x-1/2 w-[500px] h-[500px] bg-cyan-400 opacity-20 rounded-full blur-3xl mix-blend-screen animate-float"></div>
+        <div className="absolute bottom-[-140px] right-1/2 transform translate-x-1/2 w-[450px] h-[450px] bg-teal-300 opacity-30 rounded-full blur-2xl mix-blend-screen animate-float-reverse"></div>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/4 w-64 h-64 border border-dashed border-cyan-300 dark:border-teal-500 rounded-xl rotate-12 opacity-20"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-48 h-48 border border-dashed border-cyan-300 dark:border-teal-500 rounded-xl -rotate-12 opacity-20"></div>
+        </div>
+      </div>
 
       {/* Avatar + Logo Section */}
       <div className="mb-10 w-full sm:mb-0 sm:w-1/2 sm:pl-4 md:pl-16">
@@ -69,7 +71,7 @@ export default function HeroInfo() {
           <motion.img
             src="/images/meAvatar.webp"
             alt="Olivier Kepler François Avatar"
-            className="relative z-10 rounded-full border-4 border-orange-300 shadow-lg w-80 h-80 object-cover p-8"
+            className="relative z-10 rounded-full border-2 border-cyan-300/50 shadow-lg w-80 h-80 object-cover p-8"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
@@ -84,14 +86,14 @@ export default function HeroInfo() {
       >
         <motion.h1
           variants={fadeUp}
-          className="mb-6 text-4xl font-extrabold leading-tight dark:text-white md:text-5xl"
+          className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-5xl"
         >
-          Hi, I m Olivier Kepler François
+          Hi, I'm Olivier Kepler François
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
-          className="mb-4 text-lg leading-relaxed text-slate-700 dark:text-slate-400"
+          className="mb-4 text-lg leading-relaxed text-cyan-200"
         >
           Computer Science & Engineering student driven by curiosity, innovation, and a passion for impactful problem-solving.
         </motion.p>
@@ -99,11 +101,11 @@ export default function HeroInfo() {
         {/* Skills Highlights */}
         <motion.ul
           variants={container}
-          className="mb-8 flex flex-col items-center space-y-2 dark:text-slate-400 sm:items-start"
+          className="mb-8 flex flex-col items-center space-y-2 text-cyan-200 sm:items-start"
         >
           {benefits.map((benefit, index) => (
             <motion.li key={index} variants={fadeUp} className="flex items-start">
-              <IconCheck className="mr-2 mt-1 text-orange-300" />
+              <IconCheck className="mr-2 mt-1 text-cyan-300" />
               <span>{benefit}</span>
             </motion.li>
           ))}
@@ -127,7 +129,7 @@ export default function HeroInfo() {
               },
             }}
             onClick={() => setIsMenuOpen(true)}
-            className="rounded-lg bg-slate-900 px-6 py-3 text-base text-white shadow-lg hover:bg-orange-300 hover:text-black dark:bg-orange-300 dark:text-black"
+            className="rounded-lg bg-white px-6 py-3 text-base text-slate-900 shadow-lg hover:bg-cyan-300 hover:text-black dark:bg-cyan-300 dark:text-black"
             aria-label="Open Menu"
           >
             Open Menu
@@ -146,7 +148,7 @@ export default function HeroInfo() {
               },
             }}
             onClick={() => router.push('/projects')}
-            className="rounded-lg bg-white px-6 py-3 text-base text-slate-900 shadow-lg hover:bg-orange-300 dark:bg-slate-700 dark:text-slate-300"
+            className="rounded-lg bg-slate-900 px-6 py-3 text-base text-white shadow-lg hover:bg-cyan-300 hover:text-black"
             aria-label="Explore Projects"
           >
             Explore Projects
