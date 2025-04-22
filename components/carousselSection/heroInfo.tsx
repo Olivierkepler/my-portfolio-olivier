@@ -36,7 +36,7 @@ export default function HeroInfo() {
       initial="hidden"
       animate="show"
       variants={container}
-      className="relative isolate container mx-auto flex flex-col items-center px-8 py-16 sm:flex-row-reverse sm:px-12"
+      className="relative isolate container mx-auto pt-50 flex flex-col items-center px-8 py-16 sm:flex-row-reverse sm:px-12"
     >
       {/* Menu Modal */}
       <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />

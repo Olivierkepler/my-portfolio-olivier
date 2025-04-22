@@ -62,7 +62,7 @@ export default function Carousel({ slides, autoPlayInterval = 5000 }: CarouselPr
 
   return (
     <div
-      className="relative w-full  overflow-hidden translate-y-[-156px] z-[-50]"
+      className="relative w-full  overflow-hidden "
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       onMouseEnter={() => setIsPaused(true)}

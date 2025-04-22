@@ -41,7 +41,7 @@ export default function HeroInfo1() {
       initial="hidden"
       animate="show"
       variants={container}
-      className="relative isolate overflow-hidden container mx-auto px-8 py-20 flex flex-col items-center text-center sm:text-left sm:items-start bg-gradient-to-br from-slate-50 via-white to-orange-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+      className="relative isolate overflow-hidden pt-50 container mx-auto px-8 py-20 flex flex-col items-center text-center sm:text-left sm:items-start bg-gradient-to-br from-slate-50 via-white to-orange-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
     >
       {/* 🌟 Abstract Animated Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">

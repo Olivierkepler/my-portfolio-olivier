@@ -45,7 +45,7 @@ export default function HeroInfo2() {
       initial="hidden"
       animate="show"
       variants={container}
-      className="relative isolate overflow-hidden w-full px-40 py-20 pt-50 flex flex-col items-center text-center sm:text-left sm:items-start bg-gradient-to-br from-indigo-900 to-indigo-800"
+      className="relative isolate overflow-hidden w-full px-40 py-20  pt-50 flex flex-col items-center text-center sm:text-left sm:items-start bg-gradient-to-br from-indigo-900 to-indigo-800"
     >
     {/* 🌌 Radial Gradient Overlay */}
 <div className="absolute inset-0 -z-10 overflow-hidden w-full h-full">
