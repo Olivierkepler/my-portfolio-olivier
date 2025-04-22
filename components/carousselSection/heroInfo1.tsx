@@ -1,105 +1,98 @@
-'use client'
+'use client';
 
-import { IconCheck } from "@tabler/icons-react"
-import SocialLinksVertical from "@/components/SocialLinks"
-import { motion } from "framer-motion"
-// import Tech3DCube from "./Tech3DCube"
-// import OrbitingTechIcons from "./OrbitingTechIcons"
-const benefits: string[] = [
-  'Critical thinking applied to real-world challenges',
-  'Experience with scientific research and experimentation',
-  'Translating data into actionable insights',
-]
+import { motion } from 'framer-motion';
+import { Code, GraduationCap, BarChart3 } from 'lucide-react';
 
-export default function HeroInfo() {
+const skills = [
+  {
+    icon: <Code className="w-7 h-7 text-white" />,
+    title: 'Full-Stack Development',
+    description: 'Proficient in C, C++, Java, Python, React.js, MySQL, and AWS Amplify — building scalable, efficient, and dynamic web solutions.',
+  },
+  {
+    icon: <GraduationCap className="w-7 h-7 text-white" />,
+    title: 'Research & Problem Solving',
+    description: 'Experience in scientific research, data analysis, and project administration — passionate about learning and applying new technologies.',
+  },
+  {
+    icon: <BarChart3 className="w-7 h-7 text-white" />,
+    title: 'Mentorship & Leadership',
+    description: 'Strong leadership in academic mentoring and math support — fostering collaborative, inclusive learning environments.',
+  },
+];
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
+
+export default function HeroInfo1() {
   return (
-    <section className="relative isolate container mx-auto flex flex-col items-center px-8 py-10 sm:flex-row-reverse sm:px-12">
-      {/* 📌 Floating Social Links */}
-      <SocialLinksVertical />
+    <motion.section
+      initial="hidden"
+      animate="show"
+      variants={container}
+      className="relative isolate overflow-hidden container mx-auto px-8 py-20 flex flex-col items-center text-center sm:text-left sm:items-start bg-gradient-to-br from-slate-50 via-white to-orange-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+    >
+      {/* 🌟 Abstract Animated Background */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        {/* Blob 1 */}
+        <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-orange-300 opacity-30 rounded-full filter blur-3xl mix-blend-multiply animate-float"></div>
 
-      {/* 🌌 Starry background in dark mode */}
-      <div className="absolute inset-0 -z-10 hidden dark:block starry-bg" />
+        {/* Blob 2 */}
+        <div className="absolute bottom-[-120px] right-[-120px] w-[250px] h-[250px] bg-orange-200 opacity-40 rounded-full filter blur-2xl mix-blend-multiply animate-float-reverse"></div>
 
-     {/* Left - Logo & Avatar */}
-     <div className="mb-8 w-full sm:mb-0 sm:w-1/2 sm:pl-4 md:pl-16">
-        <div className="relative">
-
-          {/* 🌟 Logo with smooth zoom + fade-in */}
-          <motion.img
-            src="/images/olivier_logo_green.png"
-            alt="Olivier Logo"
-            className="absolute inset-0 rounded-lg sm:rounded-br-[80px] sm:rounded-tl-[120px]"
-            initial={{ scale: 1.2, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.4 }}
-            transition={{ duration: 4, ease: "easeInOut" }}
-          />
-
-          {/* 🧍 Avatar slides down and bounces */}
-          <motion.img
-            src="/images/meAvatar.webp"
-            alt="Olivier Portrait"
-            className="relative z-10 rounded-lg sm:rounded-br-[80px] sm:rounded-tl-[120px]"
-            initial={{ y: -100, opacity: 0, scale: 0.95 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 120, damping: 10, delay: 0.3 }}
-          />
-       <div>
-        <h1>Oliviers Tech Stack</h1>
-       </div>
-       {/* <OrbitingTechIcons /> */}
+        {/* Geometric Lines */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 border border-dashed border-gray-300 dark:border-slate-600 rounded-xl rotate-12 opacity-20"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 border border-dashed border-gray-300 dark:border-slate-600 rounded-xl -rotate-12 opacity-20"></div>
         </div>
-        
       </div>
 
-      {/* 💬 Right - Text & Buttons */}
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="mr-4 w-full text-center sm:w-1/2 sm:text-left"
+      {/* 🧑‍💻 Section Content */}
+      <motion.h2
+        variants={fadeUp}
+        className="mb-6 text-4xl font-extrabold leading-tight text-slate-800 dark:text-white md:text-5xl"
       >
-        <h1 className="mb-6 text-3xl font-bold leading-tight dark:text-slate-50 md:text-4xl">
-          Hi, Im Olivier Kepler François
-        </h1>
-        <p className="mb-2 leading-relaxed text-slate-700 dark:text-slate-400">
-          Engineering and Computer Science student passionate about solving real-world problems through technology.
-        </p>
+        My Focus: Crafting Solutions, Empowering Growth
+      </motion.h2>
 
-        <ul className="mb-8 flex flex-col items-center space-y-1 dark:text-slate-400 sm:items-start">
-          {benefits.map((benefit, index) => (
-            <motion.li
-              key={index}
-              initial={{ rotateY: 90, opacity: 0 }}
-              animate={{ rotateY: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
-              className="flex items-start"
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              <IconCheck className="mr-2 mt-1 text-orange-300" />
-              <span>{benefit}</span>
-            </motion.li>
-          ))}
-        </ul>
+      <motion.p
+        variants={fadeUp}
+        className="mb-12 max-w-2xl text-lg text-slate-600 dark:text-slate-300"
+      >
+        With a solid foundation in computer science and engineering, my mission is to build impactful technology, solve real-world challenges, and support others through mentorship and leadership.
+      </motion.p>
 
-        <div className="flex flex-col space-y-3 md:flex-row md:space-x-2 md:space-y-0">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="rounded-lg border-0 bg-slate-900 px-6 py-3 text-base text-white shadow-lg shadow-slate-300 transition hover:bg-orange-300 hover:text-slate-900 hover:shadow-orange-300 dark:bg-orange-300 dark:text-black dark:shadow-sm dark:shadow-orange-300 dark:hover:bg-orange-400 sm:py-2"
+      {/* 🌟 Skills Grid */}
+      <motion.div
+        variants={container}
+        className="grid gap-10 md:grid-cols-3"
+      >
+        {skills.map((skill, index) => (
+          <motion.div
+            key={index}
+            variants={fadeUp}
+            className="group flex flex-col items-center p-8 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out"
           >
-            Open menu
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="rounded-lg border-0 bg-white px-6 py-3 text-base text-slate-900 shadow-lg shadow-slate-100 transition hover:bg-orange-300 hover:text-slate-900 hover:shadow-orange-300 dark:bg-slate-700 dark:text-slate-300 dark:shadow-sm dark:shadow-slate-800 dark:hover:bg-slate-600 sm:py-2"
-          >
-            Explore services
-          </motion.button>
-        </div>
+            {/* Icon in Circle */}
+            <div className="mb-5 flex items-center justify-center w-16 h-16 rounded-full bg-orange-300 group-hover:bg-orange-400 transition-colors duration-300 shadow-md">
+              {skill.icon}
+            </div>
+            <h3 className="mb-3 text-xl font-bold text-slate-800 dark:text-white">{skill.title}</h3>
+            <p className="text-slate-600 dark:text-slate-400">{skill.description}</p>
+          </motion.div>
+        ))}
       </motion.div>
-    </section>
-  )
+    </motion.section>
+  );
 }
