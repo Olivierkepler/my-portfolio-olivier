@@ -57,7 +57,7 @@ export default function SubNav({ menus }: SubNavProps) {
   };
 
   return (
-    <div className="relative z-50 w-full  dark:bg-black px-4 sm:px-6 md:px-10 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div className="relative z-50 w-full   px-4 sm:px-6 md:px-10 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       {/* Left: Mobile title and menu button */}
       <div className="flex justify-between items-center sm:hidden w-full">
         <div className="text-lg font-bold text-gray-800 dark:text-gray-200">
