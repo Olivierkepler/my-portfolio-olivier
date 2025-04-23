@@ -49,8 +49,14 @@ export default function HeroInfo1() {
         <div className="absolute inset-0 bg-gradient-radial from-slate-800 via-slate-900 to-gray-900 opacity-70"></div>
 
         {/* Blobs with Pulse and Float */}
-        <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-blue-400 opacity-25 rounded-full filter blur-3xl mix-blend-multiply animate-float animate-pulse-scale"></div>
-        <div className="absolute bottom-[-120px] right-[-120px] w-[250px] h-[250px] bg-slate-300 opacity-30 rounded-full filter blur-2xl mix-blend-multiply animate-float-reverse animate-pulse-scale"></div>
+        <div
+          style={{ willChange: 'transform, opacity' }}
+          className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-blue-400 opacity-25 rounded-full filter blur-3xl mix-blend-multiply animate-float animate-pulse-scale"
+        ></div>
+        <div
+          style={{ willChange: 'transform, opacity' }}
+          className="absolute bottom-[-120px] right-[-120px] w-[250px] h-[250px] bg-slate-300 opacity-30 rounded-full filter blur-2xl mix-blend-multiply animate-float-reverse animate-pulse-scale"
+        ></div>
 
         {/* Rotating Dashed Lines */}
         <div className="absolute inset-0 pointer-events-none">
