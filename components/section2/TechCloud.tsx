@@ -90,10 +90,10 @@ export default function TechCloudPage() {
       <div className="relative z-10 max-w-7xl mx-auto text-center">
         <img src="/images/olivier_logo_green.png" alt="" className="absolute w-32 h-32 right-0 opacity-50" />
 
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+        <h2 className="text-4xl  sm:text-5xl font-extrabold text-white mb-4">
           Tech Stack
         </h2>
-        <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+        <p className="text-lg text-white mb-10 max-w-2xl mx-auto">
           My favorite tools, languages, and frameworks that power the software I build.
         </p>
 
