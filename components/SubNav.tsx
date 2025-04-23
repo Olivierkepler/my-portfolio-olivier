@@ -168,7 +168,7 @@ export default function SubNav({ menus }: SubNavProps) {
                     onClick={() => handleLinkClick(item.href)}
                     title={item.tooltip ?? item.label}
                     className={clsx(
-                      'flex items-center gap-2 px-2 py-2 text-left text-sm w-full rounded-md transition',
+                      'flex items-center gap-2 px-2 py-2 text-left text-sm w-full rounded-md transition text-white',
                       'hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500',
                       pathname === item.href
                         ? 'font-semibold text-green-600 dark:text-green-400'
