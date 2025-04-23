@@ -62,8 +62,9 @@ export default function Section2() {
 
       {/* 🛠️ Section Content */}
       <div className="relative z-10 space-y-20">
+      <NewsletterSection />
         <TechCloud />
-        <NewsletterSection />
+        
       </div>
     </section>
   );
