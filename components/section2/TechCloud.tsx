@@ -61,18 +61,18 @@ export default function TechCloudPage() {
   if (!mounted) return null;
 
   return (
-    <section className="relative py-28 px-4 sm:px-6 lg:px-10 dark:bg-gray-900 overflow-hidden">
+    <section className="relative py-28 px-4 sm:px-6 lg:px-10overflow-hidden">
       {/* 🎨 Fancy Background */}
       <div className="absolute inset-0 -z-10">
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-blue-400 opacity-25 rounded-full filter blur-3xl mix-blend-multiply" />
+        <div className="absolute inset-0  " />
 
         {/* Blurred Animated Blobs */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.4, scale: 1 }}
           transition={{ duration: 8, repeat: Infinity, repeatType: 'reverse' }}
-          className="absolute top-[-150px] left-1/4 w-96 h-96 bg-green-300 dark:bg-green-800 rounded-full blur-3xl opacity-30"
+          className="absolute top-[-150px] left-1/4 w-96 h-96 "
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
