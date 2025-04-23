@@ -50,7 +50,7 @@ export default function SubNav({ menus }: SubNavProps) {
   return (
     <nav className="absolute z-50 top-20 w-full px-20 sm:px-10 md:px-10 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       {/* Mobile Header */}
-      <div className="flex justify-between items-center sm:hidden w-full">
+      <div className="flex justify-between items-center sm:hidden w-full ">
         <SearchBar />
         <button
           onClick={() => setDrawerOpen(true)}
