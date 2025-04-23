@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search as SearchIcon, X, Loader2 } from 'lucide-react';
 
-// Mock Data - Replace this with your API or dynamic data source
 const MOCK_RESULTS = [
   'React.js Portfolio',
   'Next.js Blog App',
@@ -27,7 +26,7 @@ export default function SearchBar() {
       setTimeout(() => {
         router.push(`/search?q=${encodeURIComponent(query.trim())}`);
         setIsLoading(false);
-      }, 800); // Simulate loading delay
+      }, 800);
     }
   };
 
@@ -48,23 +47,25 @@ export default function SearchBar() {
   }, [query]);
 
   return (
-    <div className="relative w-full max-w-md">
+    <div className="relative group w-full max-w-md">
       <form
         onSubmit={handleSubmit}
         role="search"
         aria-label="Search through site content"
-        className="relative"
+        className="relative flex items-center transition-all duration-300 ease-in-out
+        w-12 group-hover:w-full focus-within:w-full sm:w-full"
       >
         <label htmlFor="search" className="sr-only">
           Search
         </label>
+
         <input
           id="search"
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search projects, tech, or keywords..."
-          className="w-full px-5 py-3 pr-12 rounded-xl border border-gray-300 bg-white text-gray-800 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:placeholder-gray-500 transition"
+          className="invisible w-0 group-hover:visible group-hover:w-full focus:w-full sm:visible sm:w-full px-5 py-3 pr-12 rounded-xl border border-gray-300 bg-white text-gray-800 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:placeholder-gray-500 transition-all duration-300 ease-in-out"
         />
 
         {/* Clear Button */}
@@ -79,7 +80,7 @@ export default function SearchBar() {
           </button>
         )}
 
-        {/* Search Button with Loading Spin Animation */}
+        {/* Search Button */}
         <button
           type="submit"
           aria-label="Submit search"
@@ -88,12 +89,12 @@ export default function SearchBar() {
           {isLoading ? (
             <Loader2 className="animate-spin" size={18} />
           ) : (
-            <SearchIcon size={18} className={`${isLoading ? 'animate-spin' : ''}`} />
+            <SearchIcon size={18} />
           )}
         </button>
       </form>
 
-      {/* Live Suggestions Dropdown */}
+      {/* Suggestions */}
       {filteredSuggestions.length > 0 && (
         <ul className="absolute z-50 mt-2 w-full max-w-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
           {filteredSuggestions.map((suggestion, index) => (

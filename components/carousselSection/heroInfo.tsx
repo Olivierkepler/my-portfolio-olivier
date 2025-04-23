@@ -67,14 +67,14 @@ export default function HeroInfo() {
       <div className="mb-10 w-full sm:mb-0 sm:w-1/2 sm:pl-4 md:pl-16">
         <div className="relative flex justify-center items-center">
           {/* Logo */}
-          <motion.img
+          {/* <motion.img
             src="/images/olivier_logo.png"
             alt="Olivier Kepler François Logo"
             className="absolute inset-0 rounded-lg sm:rounded-br-[80px] sm:rounded-tl-[120px] opacity-30"
             initial={{ x: -50, y: -50, opacity: 0 }}
             animate={{ x: 0, y: 0, opacity: 0.3 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
-          />
+          /> */}
 
           {/* Avatar */}
           {/* <motion.img
