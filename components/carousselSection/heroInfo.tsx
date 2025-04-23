@@ -100,7 +100,7 @@ export default function HeroInfo() {
           variants={fadeUp}
           className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-5xl"
         >
-          Hi, I’m Olivier Kepler François
+          Hi, Im Olivier Francois
         </motion.h1>
 
         <motion.p
