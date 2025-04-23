@@ -70,14 +70,17 @@ export default function HeroInfo1() {
         variants={fadeUp}
         className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-5xl"
       >
-        My Focus: Crafting Solutions, Empowering Growth
+        My Focus: 
       </motion.h2>
+      <h4 className="text-2xl font-bold text-white">
+      Crafting Solutions, Empowering Growth
+      </h4>
 
       <motion.p
         variants={fadeUp}
         className="mb-12 max-w-2xl text-lg text-slate-300"
       >
-        With a solid foundation in computer science and engineering, my mission is to build impactful technology, solve real-world challenges, and support others through mentorship and leadership.
+        - With a solid foundation in computer science and engineering, my mission is to build impactful technology, solve real-world challenges, and support others through mentorship and leadership.
       </motion.p>
 
       {/* 🌟 Skills Grid */}
