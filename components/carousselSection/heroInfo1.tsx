@@ -50,19 +50,19 @@ const fadeUp = {
 //   },
 // };
 
-const blobReverseAnimation = {
-  animate: {
-    y: [0, 25, 0],
-    scale: [1, 1.08, 1],
-    rotate: [0, -8, 0],
-    transition: {
-      duration: 18,
-      ease: 'easeInOut',
-      repeat: Infinity,
-      repeatType: 'mirror',
-    },
-  },
-};
+// const blobReverseAnimation = {
+//   animate: {
+//     y: [0, 25, 0],
+//     scale: [1, 1.08, 1],
+//     rotate: [0, -8, 0],
+//     transition: {
+//       duration: 18,
+//       ease: 'easeInOut',
+//       repeat: Infinity,
+//       repeatType: 'mirror',
+//     },
+//   },
+// };
 
 const rotateAnimation = {
   animate: {
