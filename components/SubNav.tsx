@@ -50,15 +50,19 @@ export default function SubNav({ menus }: SubNavProps) {
   return (
     <nav className="absolute z-50 top-20 w-full px-20 sm:px-10 md:px-10 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       {/* Mobile Header */}
-      <div className="flex justify-between items-center sm:hidden w-full ">
+      <div className="flex justify-between items-center sm:hidden w-full">
         <SearchBar />
         <button
-          onClick={() => setDrawerOpen(true)}
-          className="inline-flex text-white items-center gap-1 px-4 py-2 bg-green-500 dark:bg-green-500 rounded-md hover:bg-green-600 dark:hover:bg-green-600 transition"
-          title="Open menu"
-          aria-label="Open navigation menu"
+          onClick={() => setDrawerOpen((prev) => !prev)}
+          title={drawerOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-label={drawerOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-background"
         >
-          <Menu size={20} />
+          {drawerOpen ? (
+            <X size={20} className="text-gray-600 dark:text-gray-300 transition-all duration-200" />
+          ) : (
+            <Menu size={20} className="text-gray-600 dark:text-gray-300 transition-all duration-200" />
+          )}
         </button>
       </div>
 
@@ -70,8 +74,8 @@ export default function SubNav({ menus }: SubNavProps) {
               title={menu.tooltip ?? `Open ${menu.title}`}
               onClick={() => setOpenMenu(openMenu === menu.title ? null : menu.title)}
               className={clsx(
-                'flex items-center gap-1 px-4 py-2  font-medium rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 transition',
-                'text-white  hover:bg-green-500 dark:hover:bg-green-500'
+                'flex items-center gap-1 px-4 py-2 font-medium rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 transition',
+                'text-white hover:bg-green-500 dark:hover:bg-green-500'
               )}
               aria-expanded={openMenu === menu.title}
               aria-controls={`menu-${menu.title}`}
@@ -139,11 +143,16 @@ export default function SubNav({ menus }: SubNavProps) {
         <div className="flex justify-between items-center px-4 py-3 border-b border-gray-200 dark:border-gray-700">
           <h2 className="text-md font-semibold text-gray-800 dark:text-gray-100">Navigation Menu</h2>
           <button
-            onClick={() => setDrawerOpen(false)}
-            title="Close"
-            aria-label="Close navigation menu"
+            onClick={() => setDrawerOpen((prev) => !prev)}
+            title={drawerOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={drawerOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-background"
           >
-            <X size={20} className="text-gray-600 dark:text-gray-300" />
+            {drawerOpen ? (
+              <X size={20} className="text-gray-600 dark:text-gray-300 transition-all duration-200" />
+            ) : (
+              <Menu size={20} className="text-gray-600 dark:text-gray-300 transition-all duration-200" />
+            )}
           </button>
         </div>
 

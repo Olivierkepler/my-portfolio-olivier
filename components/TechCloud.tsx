@@ -65,7 +65,7 @@ export default function TechCloudPage() {
       {/* 🎨 Fancy Background */}
       <div className="absolute inset-0 -z-10">
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-300/30 via-teal-300/20 to-cyan-300/10 dark:from-green-800/30 dark:via-teal-700/20 dark:to-cyan-800/10" />
+        <div className="absolute inset-0 bg-blue-400 opacity-25 rounded-full filter blur-3xl mix-blend-multiply" />
 
         {/* Blurred Animated Blobs */}
         <motion.div
