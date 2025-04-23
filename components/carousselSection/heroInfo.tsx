@@ -36,7 +36,7 @@ export default function HeroInfo() {
       initial="hidden"
       animate="show"
       variants={container}
-      className="relative isolate w-full  pt-50 flex flex-col items-center px-20 py-40 sm:flex-row-reverse sm:px-40 bg-gradient-to-br from-cyan-900 to-teal-800"
+      className="relative isolate w-full pt-50 flex flex-col items-center px-20 py-40 sm:flex-row-reverse sm:px-40 bg-gradient-to-br from-cyan-900 to-teal-800"
     >
       {/* Menu Modal */}
       <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
@@ -44,13 +44,22 @@ export default function HeroInfo() {
       {/* Social Links */}
       <SocialLinksVertical />
 
-      {/* 🌊 Fancy Animated Aqua/Teal Blobs */}
+      {/* 🌊 Animated Blobs and Lines */}
       <div className="absolute inset-0 -z-10 overflow-hidden w-full h-full">
-        <div className="absolute top-[-120px] left-1/2 transform -translate-x-1/2 w-[500px] h-[500px] bg-cyan-400 opacity-20 rounded-full blur-3xl mix-blend-screen animate-float"></div>
-        <div className="absolute bottom-[-140px] right-1/2 transform translate-x-1/2 w-[450px] h-[450px] bg-teal-300 opacity-30 rounded-full blur-2xl mix-blend-screen animate-float-reverse"></div>
+        {/* Floating & Pulsing Blobs */}
+        <div
+          style={{ willChange: 'transform, opacity' }}
+          className="absolute top-[-120px] left-1/2 transform -translate-x-1/2 w-[500px] h-[500px] bg-cyan-400 opacity-20 rounded-full blur-3xl mix-blend-screen animate-float animate-pulse-scale"
+        ></div>
+        <div
+          style={{ willChange: 'transform, opacity' }}
+          className="absolute bottom-[-140px] right-1/2 transform translate-x-1/2 w-[450px] h-[450px] bg-teal-300 opacity-30 rounded-full blur-2xl mix-blend-screen animate-float-reverse animate-pulse-scale"
+        ></div>
+
+        {/* Rotating Dashed Lines */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 left-1/4 w-64 h-64 border border-dashed border-cyan-300 dark:border-teal-500 rounded-xl rotate-12 opacity-20"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-48 h-48 border border-dashed border-cyan-300 dark:border-teal-500 rounded-xl -rotate-12 opacity-20"></div>
+          <div className="absolute top-1/3 left-1/4 w-64 h-64 border border-dashed border-cyan-300 dark:border-teal-500 rounded-xl rotate-12 opacity-20 animate-rotate-slow"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-48 h-48 border border-dashed border-cyan-300 dark:border-teal-500 rounded-xl -rotate-12 opacity-20 animate-rotate-slow"></div>
         </div>
       </div>
 
@@ -88,7 +97,7 @@ export default function HeroInfo() {
           variants={fadeUp}
           className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-5xl"
         >
-          Hi, I m Olivier Kepler François
+          Hi, I’m Olivier Kepler François
         </motion.h1>
 
         <motion.p

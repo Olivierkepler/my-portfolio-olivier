@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ✅ Theme Colors and Fonts */
+/* 🌿 Theme Colors and Fonts */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -13,7 +13,7 @@
   --foreground: #ededed;
 }
 
-/* ✅ Base Styles */
+/* 🎨 Base Styles */
 body {
   background: var(--background);
   color: var(--foreground);
@@ -21,7 +21,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ✅ Fade In Animation */
+/* 🌟 Fade In Animation (for dropdowns, modals, tooltips) */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -37,6 +37,7 @@ body {
   animation: fade-in 0.2s ease-out;
 }
 
+/* 🌊 Floating Blob Animations */
 @keyframes float {
   0%, 100% {
     transform: translateY(0) rotate(0deg) scale(1);
@@ -55,6 +56,15 @@ body {
   }
 }
 
+.animate-float {
+  animation: float 12s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 14s ease-in-out infinite;
+}
+
+/* 💓 Pulse Scale Animation for Breathing Effect */
 @keyframes pulse-scale {
   0%, 100% {
     transform: scale(1);
@@ -66,6 +76,11 @@ body {
   }
 }
 
+.animate-pulse-scale {
+  animation: pulse-scale 6s ease-in-out infinite;
+}
+
+/* 🌀 Slow Rotation for Geometric Lines */
 @keyframes slow-rotate {
   0% {
     transform: rotate(0deg);
@@ -73,18 +88,6 @@ body {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.animate-float {
-  animation: float 12s ease-in-out infinite;
-}
-
-.animate-float-reverse {
-  animation: float-reverse 14s ease-in-out infinite;
-}
-
-.animate-pulse-scale {
-  animation: pulse-scale 6s ease-in-out infinite;
 }
 
 .animate-rotate-slow {
