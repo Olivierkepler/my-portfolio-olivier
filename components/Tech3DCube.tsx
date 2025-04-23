@@ -85,7 +85,7 @@ export default function Tech3DCube() {
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         className="text-center text-sm text-gray-500 dark:text-gray-400 mb-4"
       >
-        <span className="inline-block px-4 py-1 bg-black/10 dark:bg-white/10 rounded-full shadow-sm backdrop-blur">
+        <span className="inline-block px-4 py-1 mb-10 bg-black/10 dark:bg-white/10 text-white rounded-full shadow-sm backdrop-blur">
           🌀 Click a face to explore technologies
         </span>
       </motion.div>

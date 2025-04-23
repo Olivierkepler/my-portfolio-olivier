@@ -85,7 +85,9 @@ export default function HeroInfo() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
           /> */}
-          <Tech3DCube />
+         <div className='mr-10'>
+         <Tech3DCube />
+         </div>
         </div>
       </div>
 
