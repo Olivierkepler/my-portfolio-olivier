@@ -78,12 +78,12 @@ export default function Tech3DCube() {
   }, [selected])
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <>
       {/* 🌀 Prompt Message */}
       <motion.div
         animate={{ y: [0, -5, 0], opacity: [0.6, 1, 0.6] }}
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        className=" mb-80 text-center text-sm text-gray-500 dark:text-gray-400"
+        className="text-center text-sm text-gray-500 dark:text-gray-400 mb-4"
       >
         <span className="inline-block px-4 py-1 bg-black/10 dark:bg-white/10 rounded-full shadow-sm backdrop-blur">
           🌀 Click a face to explore technologies
@@ -92,7 +92,7 @@ export default function Tech3DCube() {
 
       {/* 🟠 3D Cube */}
       <div
-        className="perspective-3d w-64 h-64 "
+        className="perspective-3d w-64 h-64"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -167,6 +167,6 @@ export default function Tech3DCube() {
           </div>
         </div>
       )}
-    </div>
+    </>
   )
 }

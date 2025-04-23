@@ -65,7 +65,7 @@ export default function HeroInfo() {
 
       {/* Avatar + Logo Section */}
       <div className="mb-10 w-full sm:mb-0 sm:w-1/2 sm:pl-4 md:pl-16">
-        <div className="relative flex justify-center items-center mr-20">
+        <div className="relative flex justify-center items-center">
           {/* Logo */}
           <motion.img
             src="/images/olivier_logo.png"
@@ -98,7 +98,7 @@ export default function HeroInfo() {
           variants={fadeUp}
           className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-5xl"
         >
-          Hi, Im Olivier Kepler François
+          Hi, I’m Olivier Kepler François
         </motion.h1>
 
         <motion.p
