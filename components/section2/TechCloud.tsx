@@ -106,7 +106,7 @@ export default function TechCloudPage() {
                 setActiveTab(cat.key);
                 setSearch('');
               }}
-              className={`px-5 py-2.5 rounded-full text-sm sm:text-base font-medium transition duration-200 ${
+              className={`px-5 py-2.5 rounded-full cursor-pointer text-sm sm:text-base font-medium transition duration-200 ${
                 activeTab === cat.key
                   ? 'bg-gray-900 text-white shadow-lg dark:bg-white dark:text-gray-900'
                   : 'bg-white/80 backdrop-blur border border-gray-300 text-gray-700 hover:bg-white dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700'
@@ -124,7 +124,7 @@ export default function TechCloudPage() {
             placeholder="Search tech..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full max-w-md px-5 py-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-gray-500 text-sm bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
+            className="w-full max-w-md px-5 py-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-gray-500 text-sm bg-white dark:bg-gray-800 text-black dark:text-white dark:border-gray-600"
           />
         </div>
 

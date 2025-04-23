@@ -88,27 +88,35 @@ export default function Carousel({ slides, autoPlayInterval = 5000 }: CarouselPr
       </AnimatePresence>
 
       {/* Navigation Buttons */}
-      <div className="absolute inset-0 z-20 flex items-center justify-between  pointer-events-none px-10">
-        <button
-          onClick={handlePrevious}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="pointer-events-auto cursor-pointer bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-lg hover:bg-orange-300 hover:scale-110 hover:shadow-xl dark:hover:bg-orange-300 transition-all duration-300 ease-in-out transform"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
+      <div className="absolute inset-0 z-20 flex items-center justify-between px-10 pointer-events-none">
+  <button
+    onClick={handlePrevious}
+    onMouseEnter={() => setIsPaused(true)}
+    onMouseLeave={() => setIsPaused(false)}
+    className="pointer-events-auto cursor-pointer bg-white/80 dark:bg-gray-800/80 p-3 rounded-full shadow-lg 
+               hover:bg-gradient-to-r hover:from-cyan-400 hover:to-cyan-600 hover:scale-110 hover:shadow-2xl 
+               dark:hover:from-cyan-400 dark:hover:to-cyan-600 
+               transition-transform transition-colors duration-300 ease-in-out group"
+    aria-label="Previous slide"
+  >
+    <ChevronLeft className="w-6 h-6 text-cyan-600 dark:text-white group-hover:text-white transition-colors duration-300" />
+  </button>
 
-        <button
-          onClick={handleNext}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="pointer-events-auto cursor-pointer bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-lg hover:bg-orange-300 hover:scale-110 hover:shadow-xl dark:hover:bg-orange-300 transition-all duration-300 ease-in-out transform"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-      </div>
+  <button
+    onClick={handleNext}
+    onMouseEnter={() => setIsPaused(true)}
+    onMouseLeave={() => setIsPaused(false)}
+    className="pointer-events-auto cursor-pointer bg-white/80 dark:bg-gray-800/80 p-3 rounded-full shadow-lg 
+               hover:bg-gradient-to-r hover:from-cyan-400 hover:to-cyan-600 hover:scale-110 hover:shadow-2xl 
+               dark:hover:from-cyan-400 dark:hover:to-cyan-600 
+               transition-transform transition-colors duration-300 ease-in-out group"
+    aria-label="Next slide"
+  >
+    <ChevronRight className="w-6 h-6 text-cyan-600 dark:text-white group-hover:text-white transition-colors duration-300" />
+  </button>
+</div>
+
+
 
       {/* Dot Indicators */}
       <div className="absolute cursor-pointer bottom-4 left-1/2 -translate-x-1/2  flex gap-2 z-30">
