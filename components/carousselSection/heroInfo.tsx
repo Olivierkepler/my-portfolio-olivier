@@ -78,7 +78,7 @@ export default function HeroInfo() {
 
           {/* Avatar */}
           <motion.img
-            src="/images/meAvatar.webp"
+            src="/images/image.png"
             alt="Olivier Kepler François Avatar"
             className="relative z-10 rounded-full shadow-lg w-80 h-80 object-cover p-8"
             initial={{ scale: 0.8, opacity: 0 }}

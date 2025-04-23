@@ -164,7 +164,7 @@ interface HeaderProps {
 
 export function Header({ navLinks = links }: HeaderProps) {
   return (
-    <header className=" absolute top-0 container mx-auto flex flex-wrap items-center justify-between gap-4 py-4 px-6 z-50">
+    <header className=" absolute top-0  container mx-auto  flex flex-wrap items-center justify-between gap-4 py-4 px-6 z-50">
       <a href="#">
         <Logo />
       </a>
