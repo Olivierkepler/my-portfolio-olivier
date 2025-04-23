@@ -36,19 +36,19 @@ const fadeUp = {
 };
 
 // Smooth blob animations using spring physics
-const blobAnimation = {
-  animate: {
-    y: [0, -25, 0],
-    scale: [1, 1.08, 1],
-    rotate: [0, 8, 0],
-    transition: {
-      duration: 16,
-      ease: 'easeInOut',
-      repeat: Infinity,
-      repeatType: 'mirror',
-    },
-  },
-};
+// const blobAnimation = {
+//   animate: {
+//     y: [0, -25, 0],
+//     scale: [1, 1.08, 1],
+//     rotate: [0, 8, 0],
+//     transition: {
+//       duration: 16,
+//       ease: 'easeInOut',
+//       repeat: Infinity,
+//       repeatType: 'mirror',
+//     },
+//   },
+// };
 
 const blobReverseAnimation = {
   animate: {
