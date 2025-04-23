@@ -84,7 +84,7 @@ export default function NewsletterSection() {
                 transition={{ duration: 0.4 }}
                 className="mt-4 text-sm text-green-400"
               >
-                🎉 Thanks for subscribing! You'll hear from me soon.
+                🎉 Thanks for subscribing! You ll hear from me soon.
               </motion.p>
             )}
           </div>
@@ -97,7 +97,7 @@ export default function NewsletterSection() {
               </div>
               <dt className="mt-4 text-base font-semibold text-white">Monthly updates</dt>
               <dd className="mt-2 text-base text-gray-400">
-                A quick recap of what I’m building, writing, or experimenting with.
+                A quick recap of what I m building, writing, or experimenting with.
               </dd>
             </div>
 
