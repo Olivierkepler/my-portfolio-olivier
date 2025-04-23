@@ -111,7 +111,7 @@ export default function Carousel({ slides, autoPlayInterval = 5000 }: CarouselPr
       </div>
 
       {/* Dot Indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2  flex gap-2 z-30">
+      <div className="absolute cursor-pointer bottom-4 left-1/2 -translate-x-1/2  flex gap-2 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
