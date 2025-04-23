@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Menu from '@/components/Menu';
 import SocialLinksVertical from '@/components/SocialLinks';
 import { motion } from 'framer-motion';
-
+import Tech3DCube from '@/components/Tech3DCube';
 const benefits = [
   'Advanced skills in C, C++, Java, Python, and Web Technologies',
   'Experience in research, project administration, and mentoring',
@@ -77,14 +77,15 @@ export default function HeroInfo() {
           />
 
           {/* Avatar */}
-          <motion.img
+          {/* <motion.img
             src="/images/image.png"
             alt="Olivier Kepler François Avatar"
             className="relative z-10 rounded-full shadow-lg w-80 h-80 object-cover p-8"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
-          />
+          /> */}
+          <Tech3DCube />
         </div>
       </div>
 
