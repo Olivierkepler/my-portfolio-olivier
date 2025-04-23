@@ -2,9 +2,16 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import './cube.css'
+import Image from 'next/image'
+import '@/components/cube.css'
 
-const logos = [
+interface Logo {
+  src: string
+  alt: string
+  desc: string
+}
+
+const logos: Logo[] = [
   {
     src: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg',
     alt: 'TensorFlow',
@@ -40,9 +47,9 @@ const logos = [
 export default function Tech3DCube() {
   const [rotate, setRotate] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
-  const [selected, setSelected] = useState<any | null>(null)
+  const [selected, setSelected] = useState<Logo | null>(null)
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-  const modalRef = useRef(null)
+  const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (isHovered || selected) return
@@ -53,40 +60,37 @@ export default function Tech3DCube() {
   }, [isHovered, selected])
 
   useEffect(() => {
+    if (typeof window === 'undefined') return // Prevent SSR errors
+
     function handleClickOutside(e: MouseEvent) {
-      if (modalRef.current && !(modalRef.current as any).contains(e.target)) {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
         setSelected(null)
         setSelectedIndex(null)
       }
     }
+
     if (selected) {
       document.addEventListener('mousedown', handleClickOutside)
     }
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
   }, [selected])
 
   return (
     <>
-{/* 🌀 Prompt Message */}
-<motion.div
-  animate={{
-    y: [0, -5, 0],
-    opacity: [0.6, 1, 0.6],
-  }}
-  transition={{
-    duration: 2,
-    repeat: Infinity,
-    ease: 'easeInOut',
-  }}
-  className="text-center text-sm text-gray-500 dark:text-gray-400 mb-4"
->
-  <span className="inline-block px-4 py-1 bg-black/10 dark:bg-white/10 rounded-full shadow-sm backdrop-blur">
-    🌀 Click a face to explore technologies
-  </span>
-</motion.div>
+      {/* 🌀 Prompt Message */}
+      <motion.div
+        animate={{ y: [0, -5, 0], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        className="text-center text-sm text-gray-500 dark:text-gray-400 mb-4"
+      >
+        <span className="inline-block px-4 py-1 bg-black/10 dark:bg-white/10 rounded-full shadow-sm backdrop-blur">
+          🌀 Click a face to explore technologies
+        </span>
+      </motion.div>
 
-
-
+      {/* 🟠 3D Cube */}
       <div
         className="perspective-3d w-64 h-64"
         onMouseEnter={() => setIsHovered(true)}
@@ -112,20 +116,22 @@ export default function Tech3DCube() {
                 setSelectedIndex(i)
               }}
             >
-              <img
+              <Image
                 src={logo.src}
                 alt={logo.alt}
+                width={80}
+                height={80}
                 className="w-20 h-20 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-center text-[10px] px-3 py-1 bg-black/70 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 w-36">
                 <strong className="block text-sm">{logo.alt}</strong>
-                {/* <span className="text-[10px]">{logo.desc}</span> */}
               </div>
             </div>
           ))}
         </motion.div>
       </div>
 
+      {/* 🟢 Modal */}
       {selected && (
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4">
           <div
@@ -142,7 +148,13 @@ export default function Tech3DCube() {
               &times;
             </button>
             <div className="flex flex-col items-center text-center">
-              <img src={selected.src} alt={selected.alt} className="w-20 h-20 mb-4" />
+              <Image
+                src={selected.src}
+                alt={selected.alt}
+                width={80}
+                height={80}
+                className="w-20 h-20 mb-4"
+              />
               <h3 className="text-xl font-semibold mb-2">{selected.alt}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{selected.desc}</p>
               <button
