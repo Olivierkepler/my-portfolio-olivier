@@ -70,7 +70,7 @@ export default function SubNav({ menus }: SubNavProps) {
               title={menu.tooltip ?? `Open ${menu.title}`}
               onClick={() => setOpenMenu(openMenu === menu.title ? null : menu.title)}
               className={clsx(
-                'flex items-center gap-1 px-4 py-2 text-2xl font-medium rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 transition',
+                'flex items-center gap-1 px-4 py-2  font-medium rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 transition',
                 'text-white  hover:bg-gray-100 dark:hover:bg-gray-800'
               )}
               aria-expanded={openMenu === menu.title}

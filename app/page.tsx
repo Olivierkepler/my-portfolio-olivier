@@ -24,7 +24,7 @@ const menus = [
 
 export default function Home() {
   return (
-    <main className="">
+    <main>
    <div className="px-25">
    <SubNav menus={menus} />
    </div>
