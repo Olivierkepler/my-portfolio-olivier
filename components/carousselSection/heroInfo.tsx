@@ -36,7 +36,7 @@ export default function HeroInfo() {
       initial="hidden"
       animate="show"
       variants={container}
-      className="relative isolate w-full pt-50 flex flex-col items-center px-8 py-20 sm:flex-row-reverse sm:px-12 bg-gradient-to-br from-cyan-900 to-teal-800"
+      className="relative isolate w-full  pt-50 flex flex-col items-center px-20 py-40 sm:flex-row-reverse sm:px-40 bg-gradient-to-br from-cyan-900 to-teal-800"
     >
       {/* Menu Modal */}
       <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
@@ -71,7 +71,7 @@ export default function HeroInfo() {
           <motion.img
             src="/images/meAvatar.webp"
             alt="Olivier Kepler François Avatar"
-            className="relative z-10 rounded-full border-2 border-cyan-300/50 shadow-lg w-80 h-80 object-cover p-8"
+            className="relative z-10 rounded-full shadow-lg w-80 h-80 object-cover p-8"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}

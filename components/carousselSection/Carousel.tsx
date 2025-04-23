@@ -88,7 +88,7 @@ export default function Carousel({ slides, autoPlayInterval = 5000 }: CarouselPr
       </AnimatePresence>
 
       {/* Navigation Buttons */}
-      <div className="absolute inset-0 z-20 flex items-center justify-between  pointer-events-none">
+      <div className="absolute inset-0 z-20 flex items-center justify-between  pointer-events-none px-10">
         <button
           onClick={handlePrevious}
           onMouseEnter={() => setIsPaused(true)}
@@ -111,7 +111,7 @@ export default function Carousel({ slides, autoPlayInterval = 5000 }: CarouselPr
       </div>
 
       {/* Dot Indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2  flex gap-2 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
