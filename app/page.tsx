@@ -30,7 +30,7 @@ export default function Home() {
 
       {/* ... your content */}
 
-<Hero />    
+<Hero />      
 <Newsletter />
       
     </main>
