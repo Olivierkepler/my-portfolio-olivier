@@ -65,7 +65,7 @@ export default function HeroInfo() {
 
       {/* Avatar + Logo Section */}
       <div className="mb-10 w-full sm:mb-0 sm:w-1/2 sm:pl-4 md:pl-16">
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-center items-center mr-20">
           {/* Logo */}
           <motion.img
             src="/images/olivier_logo.png"
