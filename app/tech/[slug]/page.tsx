@@ -1,23 +1,27 @@
 import { techIcons, techLevels, techDescriptions } from '@/components/section2/data/techData';
+import { slugToName } from '@/app/utils/slugHelpers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export function generateStaticParams( slug: string) {
+// ✅ Generate static slugs for build time
+export function generateStaticParams() {
   const techNames = Object.keys(techIcons);
   return techNames.map((name) => ({
-    slug: name.toLowerCase().replace(/\s/g, '-').replace('.', ''), // Handle "Next.js" to "next-js"
+    slug: name.toLowerCase().replace(/\s/g, '-').replace(/\./g, ''), 
   }));
 }
 
+// ✅ Page Component — no need for a custom interface
 export default function TechSlugPage({ params }: { params: { slug: string } }) {
-  const techName = params.slug;    // ✅ Now we get exact matching names!
+  const techName = slugToName(params.slug); // Use helper function here ✅
+
   const icon = techIcons[techName];
   const level = techLevels[techName];
   const description = techDescriptions[techName];
 
   if (!icon || !level) {
-    notFound();
+    notFound(); // Proper 404 handling if slug is invalid
   }
 
   return (
