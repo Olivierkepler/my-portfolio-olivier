@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
-import { techIcons, techLevels } from './data/techData';
+import { techIcons, techLevels } from '../../components/section2/data/techData';
 
 const techCategories = [
   {

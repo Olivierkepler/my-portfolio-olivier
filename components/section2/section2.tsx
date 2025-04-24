@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import TechCloud from './TechCloud';
+import TechCloud from '../../app/tech/TechCloud';
 import NewsletterSection from './Newsletter';
 
 const rotateAnimation = {
