@@ -1,0 +1,27 @@
+.contact-circle {
+    width: 160px;
+    height: 160px;
+    background-color: #1f2937; /* Tailwind gray-800 */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .contact-circle .hover-effect {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: opacity 0.3s ease, transform 1s ease;
+    pointer-events: none;
+  }
+  
+  .contact-circle:hover .hover-effect {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  
