@@ -1,4 +1,5 @@
-// techData.ts
+// section2/data/techData.ts
+
 export const techLevels: Record<string, 'Beginner' | 'Intermediate' | 'Advanced'> = {
   JavaScript: 'Advanced',
   TypeScript: 'Intermediate',
@@ -23,7 +24,7 @@ export const techLevels: Record<string, 'Beginner' | 'Intermediate' | 'Advanced'
   'Tailwind CSS': 'Advanced',
   Figma: 'Intermediate',
   Bootstrap: 'Advanced',
-}
+};
 
 export const techIcons: Record<string, string> = {
   'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
@@ -46,7 +47,17 @@ export const techIcons: Record<string, string> = {
   'Docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
   'VS Code': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
   'Postman': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg',
-  'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg', 
+  'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
   'Figma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
   'Bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
-}
+};
+
+export const techDescriptions: Record<string, string> = {
+  JavaScript: 'JavaScript is the language of the web, powering dynamic content on websites and applications.',
+  Python: 'Python is widely used for AI, machine learning, data science, automation, and web development.',
+  React: 'React is a powerful library for building interactive UIs, especially single-page applications.',
+  'Next.js': 'Next.js is a React framework for server-side rendering and static site generation.',
+  Docker: 'Docker simplifies deployment through containerization, making apps portable and scalable.',
+  'Tailwind CSS': 'Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.',
+  // Add more descriptions as needed!
+};

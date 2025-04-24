@@ -44,7 +44,7 @@ const techCategories = [
   },
 ];
 
-export default function TechCloudPage() {
+export default function TechCloud() {
   const [activeTab, setActiveTab] = useState('languages');
   const [search, setSearch] = useState('');
   const [mounted, setMounted] = useState(false);
@@ -61,18 +61,14 @@ export default function TechCloudPage() {
   if (!mounted) return null;
 
   return (
-    <section className="relative py-28 px-4 sm:px-6 lg:px-10overflow-hidden">
-      {/* 🎨 Fancy Background */}
+    <section className="relative py-28 px-4 sm:px-6 lg:px-10 overflow-hidden">
+      {/* 🎨 Background Blobs */}
       <div className="absolute inset-0 -z-10">
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0  " />
-
-        {/* Blurred Animated Blobs */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.4, scale: 1 }}
           transition={{ duration: 8, repeat: Infinity, repeatType: 'reverse' }}
-          className="absolute top-[-150px] left-1/4 w-96 h-96 "
+          className="absolute top-[-150px] left-1/4 w-96 h-96 bg-cyan-300 dark:bg-cyan-700 rounded-full blur-3xl opacity-30"
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -80,20 +76,14 @@ export default function TechCloudPage() {
           transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse' }}
           className="absolute bottom-[-120px] right-1/3 w-80 h-80 bg-teal-300 dark:bg-teal-700 rounded-full blur-2xl opacity-30"
         />
-
-        {/* Floating Shapes (Optional for extra style) */}
-        <div className="absolute top-20 left-10 w-16 h-16 bg-green-400 dark:bg-green-600 rounded-xl rotate-12 blur-sm opacity-20 animate-float-slow" />
-        <div className="absolute bottom-32 right-16 w-12 h-12 bg-teal-400 dark:bg-teal-600 rounded-full blur-md opacity-25 animate-float-reverse" />
       </div>
 
-      {/* 💻 Tech Stack Content */}
+      {/* 💻 Content */}
       <div className="relative z-10 max-w-7xl mx-auto text-center">
-        <img src="/images/olivier_logo_green.png" alt="" className="absolute w-32 h-32 right-0 opacity-50" />
-
-        <h2 className="text-4xl  sm:text-5xl font-extrabold text-white mb-4">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
           Tech Stack
         </h2>
-        <p className="text-lg text-white mb-10 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-10 max-w-2xl mx-auto">
           My favorite tools, languages, and frameworks that power the software I build.
         </p>
 
@@ -124,7 +114,7 @@ export default function TechCloudPage() {
             placeholder="Search tech..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full max-w-md px-5 py-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-gray-500 text-sm bg-white dark:bg-gray-800 text-black dark:text-white dark:border-gray-600"
+            className="w-full max-w-md px-5 py-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-cyan-500 text-sm bg-white dark:bg-gray-800 text-black dark:text-white dark:border-gray-600"
           />
         </div>
 
