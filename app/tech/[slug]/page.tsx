@@ -1,50 +1,50 @@
-import { techIcons, techLevels, techDescriptions } from '@/components/section2/data/techData';
-import { slugToName } from '@/app/utils/slugHelpers';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+// import { techIcons, techLevels, techDescriptions } from '@/components/section2/data/techData';
+// import { slugToName } from '@/app/utils/slugHelpers';
+// import Image from 'next/image';
+// import Link from 'next/link';
+// import { notFound } from 'next/navigation';
 
-// ✅ Generate static slugs for build time
-export function generateStaticParams() {
-  const techNames = Object.keys(techIcons);
-  return techNames.map((name) => ({
-    slug: name.toLowerCase().replace(/\s/g, '-').replace(/\./g, ''), 
-  }));
-}
+// // ✅ Generate static slugs for build time
+// export function generateStaticParams() {
+//   const techNames = Object.keys(techIcons);
+//   return techNames.map((name) => ({
+//     slug: name.toLowerCase().replace(/\s/g, '-').replace(/\./g, ''), 
+//   }));
+// }
 
-// ✅ Page Component — no need for a custom interface
-export default function TechSlugPage({ params }: { params: { slug: string } }) {
-  const techName = slugToName(params.slug); // Use helper function here ✅
+// // ✅ Page Component — no need for a custom interface
+// export default function TechSlugPage({ params }: { params: { slug: string } }) {
+//   const techName = slugToName(params.slug); // Use helper function here ✅
 
-  const icon = techIcons[techName];
-  const level = techLevels[techName];
-  const description = techDescriptions[techName];
+//   const icon = techIcons[techName];
+//   const level = techLevels[techName];
+//   const description = techDescriptions[techName];
 
-  if (!icon || !level) {
-    notFound(); // Proper 404 handling if slug is invalid
-  }
+//   if (!icon || !level) {
+//     notFound(); // Proper 404 handling if slug is invalid
+//   }
 
-  return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-cyan-500 to-teal-500 dark:from-cyan-700 dark:to-teal-800 px-6 py-20">
-      <div className="bg-white dark:bg-gray-900 p-10 rounded-3xl shadow-xl text-center space-y-6">
-        <Image src={icon} alt={`${techName} logo`} width={100} height={100} className="mx-auto" />
-        <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white capitalize">{techName}</h1>
-        <span
-          className={`inline-block px-4 py-1 rounded-full text-sm font-semibold ${
-            level === 'Advanced'
-              ? 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-200'
-              : level === 'Intermediate'
-              ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-200'
-              : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white'
-          }`}
-        >
-          {level} Skill Level
-        </span>
-        <p className="text-gray-700 dark:text-gray-300 text-lg">{description}</p>
-        <Link href="/" className="inline-block mt-4 px-6 py-2 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition">
-          ← Back to Tech Stack
-        </Link>
-      </div>
-    </section>
-  );
-}
+//   return (
+//     <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-cyan-500 to-teal-500 dark:from-cyan-700 dark:to-teal-800 px-6 py-20">
+//       <div className="bg-white dark:bg-gray-900 p-10 rounded-3xl shadow-xl text-center space-y-6">
+//         <Image src={icon} alt={`${techName} logo`} width={100} height={100} className="mx-auto" />
+//         <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white capitalize">{techName}</h1>
+//         <span
+//           className={`inline-block px-4 py-1 rounded-full text-sm font-semibold ${
+//             level === 'Advanced'
+//               ? 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-200'
+//               : level === 'Intermediate'
+//               ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-200'
+//               : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white'
+//           }`}
+//         >
+//           {level} Skill Level
+//         </span>
+//         <p className="text-gray-700 dark:text-gray-300 text-lg">{description}</p>
+//         <Link href="/" className="inline-block mt-4 px-6 py-2 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition">
+//           ← Back to Tech Stack
+//         </Link>
+//       </div>
+//     </section>
+//   );
+// }
