@@ -4,7 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { ThemeProvider } from "next-themes";
 import Footer from "@/components/footer";
-  import ProfessionalFooter from "@/components/professionalFooter";
+  // import ProfessionalFooter from "@/components/professionalFooter";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,7 +35,7 @@ export default function RootLayout({
        </div>
           {children}
           <Footer /> 
-          <ProfessionalFooter />
+          {/* <ProfessionalFooter /> */}
         </ThemeProvider>
       </body>
     </html>

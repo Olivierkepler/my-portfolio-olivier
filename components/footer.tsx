@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const companyLinks = [
     {
       title: 'About',
@@ -64,6 +66,7 @@ const companyLinks = [
     return (
       <footer className=" bg-slate-50 dark:bg-black">
         <div className="container mx-auto flex flex-col items-start space-y-12 px-8 pb-8 pt-12 md:flex-row md:space-y-0 md:space-x-12 md:px-12">
+      
           <div className="flex w-full flex-col space-y-4 text-center md:w-2/5 md:text-left">
             <Logo />
             <p className="text-sm text-slate-600">
