@@ -3,7 +3,7 @@ import SubNav from '@/components/SubNav';
 import { FolderKanban, Brain, Smartphone, Clock, Star } from 'lucide-react';
 import Testimonials from '@/components/Testimonials';
 import Section2 from '@/components/section2/section2';
-import Project from '@/components/projects/project';
+// import Project from '@/components/projects/project';
 import Project1 from '@/components/projects/project1';
 import Project2 from '@/components/projects/project2';
 import Project3 from '@/components/projects/project3';
