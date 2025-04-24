@@ -1,4 +1,4 @@
-'use client'
+
 import { techIcons, techLevels, techDescriptions } from '@/components/section2/data/techData';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,15 +9,19 @@ import { notFound } from 'next/navigation';
 
 
 // ✅ Define this function to tell Next.js what slugs to generate at build time
-export function generateStaticParams() {
+export async function generateStaticParams() {
   const techNames = Object.keys(techIcons);
   return techNames.map((name) => ({
-    slug: name.toLowerCase().replace(/\s/g, '-'),
+    
+    // 🔤 Define the type for the slug parameter
+    slug: name.toLowerCase().replace(/\s/g, '-'), 
+    // 🔤 Define the type for the techName parameter
+    techName: name, 
   }));
 }
 
 // ✅ Page component (no need to define a custom type manually)
-export default function TechSlugPage({ params }: { params: { slug: string } }) {
+export default function TechSlugPage({ params }: { params: { slug: string, techName: string    } }) {
   const techName = decodeURIComponent(params.slug.replace(/-/g, ' '));
   const icon = techIcons[techName];
   const level = techLevels[techName];
