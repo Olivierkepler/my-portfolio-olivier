@@ -69,9 +69,7 @@ const companyLinks = [
       
           <div className="flex w-full flex-col space-y-4 text-center md:w-2/5 md:text-left">
             <Logo />
-           <div className=" absolute right-80  ">
-           <ContactCircle />
-           </div>
+           
             <p className="text-sm text-slate-600">
               UniqueFund provides access to fast and reliable financing solutions
               for SMEs.
@@ -130,6 +128,9 @@ const companyLinks = [
               ))}
             </ul>
           </div>
+          <div className="w-full text-center text-slate-600 md:w-1/5 md:text-left">
+           <ContactCircle />
+           </div>
         </div>
   
         <div className="container mx-auto border-t border-slate-200 p-8 text-center text-sm text-slate-600 dark:border-slate-900 md:flex-row md:px-12">
