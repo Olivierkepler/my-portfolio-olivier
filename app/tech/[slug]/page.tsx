@@ -1,7 +1,11 @@
+'use client'
 import { techIcons, techLevels, techDescriptions } from '@/components/section2/data/techData';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+
+
+
 
 
 // ✅ Define this function to tell Next.js what slugs to generate at build time
