@@ -1,7 +1,17 @@
 import { techIcons, techLevels, techDescriptions } from '@/components/section2/data/techData';
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
+// ✅ Define this function to tell Next.js what slugs to generate at build time
+export async function generateStaticParams() {
+  const techNames = Object.keys(techIcons);
+  return techNames.map((name) => ({
+    slug: name.toLowerCase().replace(/\s/g, '-'),
+  }));
+}
+
+// ✅ Page component (no need to define a custom type manually)
 export default function TechSlugPage({ params }: { params: { slug: string } }) {
   const techName = decodeURIComponent(params.slug.replace(/-/g, ' '));
   const icon = techIcons[techName];
@@ -9,16 +19,7 @@ export default function TechSlugPage({ params }: { params: { slug: string } }) {
   const description = techDescriptions[techName];
 
   if (!icon || !level) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-        <div className="text-center space-y-4">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Technology Not Found</h2>
-          <Link href="/" className="px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700 transition">
-            Back to Tech Stack
-          </Link>
-        </div>
-      </div>
-    );
+    notFound(); // ✅ Proper way to handle missing slugs in app/ directory
   }
 
   return (
