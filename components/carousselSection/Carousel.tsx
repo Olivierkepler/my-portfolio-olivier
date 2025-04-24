@@ -119,25 +119,27 @@ export default function Carousel({ slides, autoPlayInterval = 5000 }: CarouselPr
 
 
       {/* Dot Indicators */}
-      <div className="absolute cursor-pointer bottom-4 left-1/2 -translate-x-1/2  flex gap-2 z-30">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              setCurrentIndex(index)
-              setIsPaused(true)
-            }}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              index === currentIndex
-                ? 'bg-orange-300 dark:bg-orange-300'
-                : 'bg-gray-400 dark:bg-gray-600'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-30 cursor-pointer">
+  {slides.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => {
+        setCurrentIndex(index);
+        setIsPaused(true);
+      }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      className={`w-4 h-4 rounded-full border-2 
+        transition-all duration-300 ease-in-out transform 
+        ${index === currentIndex 
+          ? 'bg-cyan-500 border-cyan-500 scale-110 shadow-md dark:bg-cyan-400 dark:border-cyan-400' 
+          : 'bg-gray-300 border-gray-400 hover:bg-cyan-300 hover:border-cyan-400 dark:bg-gray-600 dark:border-gray-500 dark:hover:bg-cyan-500 dark:hover:border-cyan-500'}
+      `}
+      aria-label={`Go to slide ${index + 1}`}
+    />
+  ))}
+</div>
+
     </div>
   )
 }
