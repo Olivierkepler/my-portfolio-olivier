@@ -3,6 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+interface TechSlugPageProps {
+  params: {
+    slug: string;
+  };
+}
+
 // ✅ Define this function to tell Next.js what slugs to generate at build time
 export async function generateStaticParams() {
   const techNames = Object.keys(techIcons);
