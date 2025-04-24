@@ -1,7 +1,7 @@
 import Hero from '@/components/carousselSection/hero';
 import SubNav from '@/components/SubNav';
 import { FolderKanban, Brain, Smartphone, Clock, Star } from 'lucide-react';
-
+import Testimonials from '@/components/Testimonials';
 import Section2 from '@/components/section2/section2';
 const menus = [
   {
@@ -33,6 +33,7 @@ export default function Home() {
 
 <Hero />      
 <Section2 />
+<Testimonials />
       
     </main>
 
