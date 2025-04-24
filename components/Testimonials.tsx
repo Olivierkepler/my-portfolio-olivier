@@ -24,8 +24,8 @@ export default function Testimonials() {
             <Image
               src="/images/womanImage.jpg"
               alt="Judith Black"
-              width={56}
-              height={56}
+              width={100}
+              height={100}
               className="rounded-full object-cover"
             />
             <div className="ml-4">
@@ -54,8 +54,8 @@ export default function Testimonials() {
             <Image
               src="/images/manImage.jpeg"
               alt="Joseph Rodriguez"
-              width={56}
-              height={56}
+              width={100}
+              height={100}
               className="rounded-full object-cover"
             />
             <div className="ml-4">
