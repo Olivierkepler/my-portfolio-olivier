@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-
+// import { motion } from "framer-motion";
+import ContactCircle from "./ContactCircle";
 const companyLinks = [
     {
       title: 'About',
@@ -69,6 +69,9 @@ const companyLinks = [
       
           <div className="flex w-full flex-col space-y-4 text-center md:w-2/5 md:text-left">
             <Logo />
+           <div className=" absolute right-80  ">
+           <ContactCircle />
+           </div>
             <p className="text-sm text-slate-600">
               UniqueFund provides access to fast and reliable financing solutions
               for SMEs.
