@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export function generateStaticParams() {
+export function generateStaticParams( slug: string) {
   const techNames = Object.keys(techIcons);
   return techNames.map((name) => ({
     slug: name.toLowerCase().replace(/\s/g, '-').replace('.', ''), // Handle "Next.js" to "next-js"
