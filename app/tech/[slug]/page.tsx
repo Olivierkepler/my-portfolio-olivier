@@ -2,11 +2,7 @@ import { techIcons, techLevels, techDescriptions } from '@/components/section2/d
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface TechSlugPageProps {
-  params: { slug: string };
-}
-
-export default function TechSlugPage({ params }: TechSlugPageProps) {
+export default function TechSlugPage({ params }: { params: { slug: string } }) {
   const techName = decodeURIComponent(params.slug.replace(/-/g, ' '));
   const icon = techIcons[techName];
   const level = techLevels[techName];
