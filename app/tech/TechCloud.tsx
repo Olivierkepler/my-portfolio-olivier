@@ -14,19 +14,25 @@ const techCategories = [
   { key: 'ui', title: 'UI & Design', desc: 'Design systems and styling tools I use for great UI/UX.', items: ['Tailwind CSS', 'Figma', 'Bootstrap'] },
 ];
 
+// Animation variants
 const flipIn = {
-  hidden: { opacity: 0, rotateX: -90 },
-  visible: { opacity: 1, rotateX: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+  hidden: { opacity: 0, rotateX: -45, y: 20 },
+  visible: { opacity: 1, rotateX: 0, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
 const scalePop = {
-  hidden: { opacity: 0, scale: 0.5, rotate: -10 },
-  visible: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 0.5, ease: 'backOut' } },
+  hidden: { opacity: 0, scale: 0.9, y: 30 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
 };
 
 const staggerContainer = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
 };
 
 export default function TechCloudPage() {
@@ -34,49 +40,128 @@ export default function TechCloudPage() {
   const [search, setSearch] = useState('');
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const currentCategory = techCategories.find((cat) => cat.key === activeTab);
-  const filteredItems = currentCategory?.items.filter((name) => name.toLowerCase().includes(search.toLowerCase()));
+  const filteredItems = currentCategory?.items.filter((name) =>
+    name.toLowerCase().includes(search.toLowerCase())
+  );
 
   if (!mounted) return null;
 
   return (
-    <section className="relative py-28 px-4 sm:px-6 lg:px-10 overflow-hidden">
-      <motion.div className="relative z-10 max-w-7xl mx-auto text-center" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={staggerContainer}>
-        <motion.h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4" variants={flipIn}>Tech Stack</motion.h2>
-        <motion.p className="text-lg text-white mb-10 max-w-2xl mx-auto" variants={flipIn}>My favorite tools, languages, and frameworks that power the software I build.</motion.p>
+    <section className="relative py-32 px-6 sm:px-12 lg:px-24 overflow-hidden">
+      {/* Background Blobs */}
+      <div className="absolute inset-0 -z-10">
+        <motion.div
+          className="absolute top-[-120px] left-[-80px] w-[300px] h-[300px] bg-cyan-400 opacity-30 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1], y: [0, -20, 0] }}
+          transition={{ repeat: Infinity, duration: 10, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-[-100px] right-[-100px] w-[260px] h-[260px] bg-teal-300 opacity-30 rounded-full blur-2xl"
+          animate={{ scale: [1.2, 1, 1.2], y: [0, 25, 0] }}
+          transition={{ repeat: Infinity, duration: 12, ease: 'easeInOut' }}
+        />
+      </div>
 
-        <motion.div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8" variants={staggerContainer}>
+      {/* Content */}
+      <motion.div
+        className="relative z-10 max-w-7xl mx-auto text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }} // Trigger every scroll up/down
+        variants={staggerContainer}
+      >
+        <motion.h2 className="text-5xl font-extrabold text-white mb-4 tracking-tight" variants={flipIn}>
+          <span className="bg-gradient-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">My Tech Stack</span>
+        </motion.h2>
+        <motion.p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto" variants={flipIn}>
+          Tools, frameworks, and technologies I use to build responsive, powerful, and scalable applications.
+        </motion.p>
+
+        {/* Tabs */}
+        <motion.div className="flex flex-wrap justify-center gap-4 mb-10" variants={staggerContainer}>
           {techCategories.map((cat) => (
-            <motion.button key={cat.key} onClick={() => { setActiveTab(cat.key); setSearch(''); }} variants={flipIn} className={`px-5 py-2.5 rounded-full cursor-pointer text-sm sm:text-base font-medium transition duration-200 ${activeTab === cat.key ? 'bg-gray-900 text-white shadow-lg dark:bg-white dark:text-gray-900' : 'bg-white/80 backdrop-blur border border-gray-300 text-gray-700 hover:bg-white dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700'}`}>{cat.title}</motion.button>
+            <motion.button
+              key={cat.key}
+              onClick={() => {
+                setActiveTab(cat.key);
+                setSearch('');
+              }}
+              variants={flipIn}
+              className={`px-5 py-2.5 rounded-full text-sm sm:text-base font-medium backdrop-blur-md shadow border transition-all ${
+                activeTab === cat.key
+                  ? 'bg-cyan-600 text-white border-transparent hover:brightness-110'
+                  : 'bg-white/10 text-gray-300 border-gray-500 hover:bg-white/20'
+              }`}
+            >
+              {cat.title}
+            </motion.button>
           ))}
         </motion.div>
 
+        {/* Search */}
         <motion.div className="mb-12 flex justify-center" variants={flipIn}>
-          <input type="text" placeholder="Search tech..." value={search} onChange={(e) => setSearch(e.target.value)} className="w-full max-w-md px-5 py-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-gray-500 text-sm bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600" />
+          <input
+            type="text"
+            placeholder="Search technology..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full max-w-md px-5 py-3 rounded-xl border border-gray-600 bg-white/5 text-white placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          />
         </motion.div>
 
+        {/* Tech Cards */}
         <AnimatePresence mode="wait">
-          <motion.div key={activeTab + search} initial="hidden" animate="visible" exit="hidden" variants={staggerContainer} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-items-center">
+          <motion.div
+            key={activeTab + search}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={staggerContainer}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-items-center"
+          >
             {filteredItems && filteredItems.length > 0 ? (
               filteredItems.map((tech) => {
                 const slug = encodeURIComponent(tech.replace(/\s/g, '-'));
                 const level = techLevels[tech];
+
                 return (
                   <motion.div key={tech} variants={scalePop}>
-                    <Link href={`/tech/${slug}`} className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white/80 dark:bg-gray-800 backdrop-blur-md border border-gray-200 dark:border-gray-700 transition hover:shadow-xl hover:-translate-y-1 w-40 sm:w-44 md:w-48 lg:w-52 cursor-pointer">
+                    <Link
+                      href={`/tech/${slug}`}
+                      className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition border border-white/10 hover:border-cyan-400 shadow-xl backdrop-blur-xl hover:shadow-cyan-500/30 w-40 sm:w-44 md:w-48 lg:w-52"
+                    >
                       <div className="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center">
-                        <img src={techIcons[tech]} alt={`${tech} logo`} className="max-h-full max-w-full object-contain" />
+                        <img
+                          src={techIcons[tech]}
+                          alt={`${tech} logo`}
+                          className="max-h-full max-w-full object-contain transition-transform group-hover:scale-110"
+                        />
                       </div>
-                      <span className="mt-4 text-lg sm:text-xl font-semibold text-gray-800 dark:text-white text-center">{tech}</span>
-                      <span className={`mt-2 inline-block px-3 py-0.5 rounded-full text-xs font-medium transition ${level === 'Advanced' ? 'bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200' : level === 'Intermediate' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-700 dark:text-yellow-200' : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white'}`}>{level} Skill</span>
+                      <span className="mt-4 text-lg sm:text-xl font-semibold text-white text-center">
+                        {tech}
+                      </span>
+                      <span
+                        className={`mt-2 inline-block px-3 py-0.5 rounded-full text-xs font-medium ${
+                          level === 'Advanced'
+                            ? 'bg-green-500/20 text-green-300'
+                            : level === 'Intermediate'
+                            ? 'bg-yellow-500/20 text-yellow-300'
+                            : 'bg-gray-400/20 text-gray-200'
+                        }`}
+                      >
+                        {level} Skill
+                      </span>
                     </Link>
                   </motion.div>
                 );
               })
             ) : (
-              <div className="col-span-full text-gray-500 dark:text-gray-400">No matching technologies found.</div>
+              <div className="col-span-full text-gray-400">No matching technologies found.</div>
             )}
           </motion.div>
         </AnimatePresence>
