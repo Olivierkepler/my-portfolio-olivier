@@ -1,34 +1,23 @@
-
 import { techIcons, techLevels, techDescriptions } from '@/components/section2/data/techData';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-
-
-
-
-// ✅ Define this function to tell Next.js what slugs to generate at build time
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const techNames = Object.keys(techIcons);
   return techNames.map((name) => ({
-    
-    // 🔤 Define the type for the slug parameter
-    slug: name.toLowerCase().replace(/\s/g, '-'), 
-    // 🔤 Define the type for the techName parameter
-    techName: name, 
+    slug: name.toLowerCase().replace(/\s/g, '-').replace('.', ''), // Handle "Next.js" to "next-js"
   }));
 }
 
-// ✅ Page component (no need to define a custom type manually)
-export default function TechSlugPage({ params }: { params: { slug: string, techName: string    } }) {
-  const techName = decodeURIComponent(params.slug.replace(/-/g, ' '));
+export default function TechSlugPage({ params }: { params: { slug: string } }) {
+  const techName = params.slug;    // ✅ Now we get exact matching names!
   const icon = techIcons[techName];
   const level = techLevels[techName];
   const description = techDescriptions[techName];
 
   if (!icon || !level) {
-    notFound(); // ✅ Proper way to handle missing slugs in app/ directory
+    notFound();
   }
 
   return (
