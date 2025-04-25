@@ -32,7 +32,7 @@ export default function TwoColumnsWithImage() {
                     <HeroInfo2 />
                 </div>
               ]}
-              autoPlayInterval={4000}
+              autoPlayInterval={8000}
             />  
 
 {/* <HeroInfo /> */}

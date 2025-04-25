@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation"; // Import router for navigation
+import { useRouter } from "next/navigation";
 
 export default function Project1() {
   const images = [
@@ -25,7 +25,7 @@ export default function Project1() {
   const mouseY = useMotionValue(0);
   const smoothX = useSpring(mouseX, { stiffness: 300, damping: 30 });
   const smoothY = useSpring(mouseY, { stiffness: 300, damping: 30 });
-  const router = useRouter(); // Initialize router
+  const router = useRouter();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -44,17 +44,17 @@ export default function Project1() {
 
   return (
     <div
-      className="sticky top-0 z-40 bg-gradient-to-br from-black via-gray-900 to-black h-screen flex items-center justify-center"
+      className="sticky top-0 z-40 bg-gradient-to-br from-black via-gray-900 to-black h-screen flex items-center justify-center overflow-hidden relative px-4"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
         setIsHovering(false);
         setIsSquare(false);
       }}
-      onClick={() => setIsSquare(!isSquare)} // Toggle shape on click!
+      onClick={() => setIsSquare(!isSquare)}
     >
       {/* Text and Floating Images */}
       <motion.div
-        className="flex items-center justify-center text-white text-8xl font-extrabold relative overflow-hidden"
+        className="flex flex-col sm:flex-row items-center justify-center text-white text-5xl sm:text-6xl md:text-8xl font-extrabold relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
@@ -64,18 +64,21 @@ export default function Project1() {
           initial={{ x: 150, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="mr-8 tracking-wide"
+          className="mr-0 sm:mr-8 mb-4 sm:mb-0 tracking-wide"
         >
           Feat
         </motion.span>
 
         {/* Floating Images with Click to Navigate */}
-        <div className="relative w-100 h-100 overflow-hidden">
+        <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96 overflow-hidden">
           {images.map((img, index) => (
             <motion.div
               key={index}
               className="absolute top-0 left-0 w-full h-full cursor-pointer"
-              onClick={() => router.push(img.link)} // Navigate on click!
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent square toggle on image click
+                router.push(img.link);
+              }}
             >
               <motion.img
                 src={img.src}
@@ -100,7 +103,7 @@ export default function Project1() {
           initial={{ x: -150, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="ml-8 tracking-wide"
+          className="ml-0 sm:ml-8 mt-4 sm:mt-0 tracking-wide"
         >
           ured
         </motion.span>
@@ -109,7 +112,7 @@ export default function Project1() {
       {/* Cursor-Follow Shape */}
       {isHovering && (
         <motion.div
-          className={`fixed top-0 left-0 w-16 h-16 bg-white pointer-events-none mix-blend-difference ${
+          className={`fixed top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 bg-white pointer-events-none mix-blend-difference ${
             isSquare ? "rounded-sm" : "rounded-full"
           }`}
           style={{
