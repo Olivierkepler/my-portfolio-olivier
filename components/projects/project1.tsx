@@ -6,21 +6,21 @@ export default function Project1() {
             <span className="mr-6">Project</span>
   
             {/* Overlayed Images */}
-            <div className="relative w-200 h-200">
+            <div className="relative w-100 h-100">
               <img
                 src="/images/womanImage.jpg"
                 alt="image1"
-                className="absolute top-0 left-0 w-200 h-200 object-cover z-30"
+                className="absolute top-0 left-0 w-100 h-100 object-cover z-30"
               />
               <img
                 src="/images/womanImage.jpg"
                 alt="image2"
-                className="absolute top-0 left-0 w-200 h-200 object-cover z-20"
+                className="absolute top-0 left-0 w-100 h-100 object-cover z-20"
               />
               <img
                 src="/images/womanImage.jpg"
                 alt="image3"
-                className="absolute top-0 left-0 w-200 h-200 object-cover z-10"
+                className="absolute top-0 left-0 w-100 h-100 object-cover z-10"
               />
             </div>
   
