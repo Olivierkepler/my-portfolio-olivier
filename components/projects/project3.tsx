@@ -40,11 +40,11 @@ export default function Project3() {
     <div
       ref={containerRef}
       onClick={handleClick}
-      className="sticky top-0 z-49 h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center overflow-hidden relative"
+      className="sticky top-0 z-49 h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center overflow-hidden relative px-4"
     >
       {/* Glow Pulse */}
       <motion.div
-        className="absolute w-[700px] h-[700px] bg-yellow-300/20 rounded-full blur-3xl"
+        className="absolute w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] bg-yellow-300/20 rounded-full blur-3xl"
         animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -52,10 +52,10 @@ export default function Project3() {
       {/* Particles */}
       {[...Array(20)].map((_, i) => {
         const angle = (i / 20) * Math.PI * 2;
-        const baseX = Math.cos(angle) * 300;
-        const baseY = Math.sin(angle) * 300;
-        const dx = (mousePos.x - 450) / 30; // adjust based on center
-        const dy = (mousePos.y - 450) / 30;
+        const baseX = Math.cos(angle) * 250;
+        const baseY = Math.sin(angle) * 250;
+        const dx = (mousePos.x - (containerRef.current?.clientWidth || 900) / 2) / 30;
+        const dy = (mousePos.y - (containerRef.current?.clientHeight || 900) / 2) / 30;
         return (
           <motion.div
             key={i}
@@ -67,11 +67,11 @@ export default function Project3() {
       })}
 
       {/* Letter-by-letter Title */}
-      <div className="relative z-10 flex gap-4">
+      <div className="relative z-10 flex flex-wrap justify-center gap-2 sm:gap-4">
         {letters.map((letter, index) => (
           <motion.span
             key={index}
-            className="text-yellow-300 text-8xl font-extrabold"
+            className="text-yellow-300 text-5xl sm:text-7xl md:text-8xl font-extrabold"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.15, ease: "easeOut" }}

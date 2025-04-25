@@ -28,7 +28,7 @@ export default function Project2() {
 
   return (
     <div
-      className="sticky top-0 z-40 h-screen flex items-center justify-center overflow-hidden relative"
+      className="sticky top-0 z-40  h-screen flex items-center justify-center overflow-hidden relative"
       style={{ backgroundColor: "#F7E37A" }}
     >
       {/* Center Glow Pulse */}
