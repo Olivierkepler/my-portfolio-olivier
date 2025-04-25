@@ -6,7 +6,7 @@ export default function Project1() {
             <span className="mr-6">Project</span>
   
             {/* Overlayed Images */}
-            <div className="relative w-48 h-48">
+            <div className="relative w-200 h-200">
               <img
                 src="/images/womanImage.jpg"
                 alt="image1"
