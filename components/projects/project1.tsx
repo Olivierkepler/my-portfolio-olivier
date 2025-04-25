@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Project1() {
   const images = [
@@ -11,14 +12,39 @@ export default function Project1() {
 
   const variants = {
     animate: {
-      y: ["100%", "0%", "-100%"],        // Upward motion: from bottom → center → exit top
-      opacity: [0, 1, 0],                // Fade in at center, fade out at top
-      scale: [0.95, 1, 1.05],            // Optional slight zoom for a natural feel
+      y: ["100%", "0%", "-100%"],
+      opacity: [0, 1, 0],
+      scale: [0.95, 1, 1.05],
     },
   };
 
+  const [isHovering, setIsHovering] = useState(false);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const smoothX = useSpring(mouseX, { stiffness: 300, damping: 30 });
+  const smoothY = useSpring(mouseY, { stiffness: 300, damping: 30 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    if (isHovering) {
+      window.addEventListener("mousemove", handleMouseMove);
+    } else {
+      window.removeEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [isHovering, mouseX, mouseY]);
+
   return (
-    <div className="sticky top-0 z-40 bg-gradient-to-br from-black via-gray-900 to-black h-screen flex items-center justify-center">
+    <div
+      className="sticky top-0 z-40 bg-gradient-to-br from-black via-gray-900 to-black h-screen flex items-center justify-center"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
       <motion.div
         className="flex items-center justify-center text-white text-8xl font-extrabold relative overflow-hidden"
         initial={{ opacity: 0 }}
@@ -35,19 +61,19 @@ export default function Project1() {
           Feat
         </motion.span>
 
-        {/* Floating Images (Fixed Sizing and Animation) */}
+        {/* Floating Images */}
         <div className="relative w-100 h-100 overflow-hidden">
           {images.map((img, index) => (
             <motion.img
               key={index}
               src={img}
               alt={`image${index}`}
-              className="absolute top-0 left-0 w-full h-full object-cover  shadow-xl"
+              className="absolute top-0 left-0 w-full h-full object-cover shadow-xl"
               variants={variants}
               animate="animate"
               transition={{
-                duration: 6,
-                delay: index * (6 / images.length), // Evenly staggered
+                duration: 5,
+                delay: index * (6 / images.length),
                 repeat: Infinity,
                 repeatType: "loop",
                 ease: "easeInOut",
@@ -66,6 +92,19 @@ export default function Project1() {
           ured
         </motion.span>
       </motion.div>
+
+      {/* Cursor Follow Circle */}
+      {isHovering && (
+        <motion.div
+          className="fixed top-0 left-0 w-20 h-20 bg-white rounded-full pointer-events-none mix-blend-difference"
+          style={{
+            x: smoothX,
+            y: smoothY,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
+        />
+      )}
     </div>
   );
 }
