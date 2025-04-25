@@ -5,16 +5,15 @@ import { motion } from "framer-motion";
 export default function Project1() {
   const images = [
     "/images/womanImage.jpg",
-    "/images/womanImage.jpg",
-    "/images/womanImage.jpg",
+    "/images/manImage.jpeg",
+    "/images/womanpic.webp",
   ];
 
-  // Variants for the floating and fade-out motion
   const variants = {
     animate: {
-      y: ["100%", "0%", "-100%"],        // Starts below, passes through center, exits at top
-      opacity: [0, 1, 0],                // Fades in at center, fades out fully at top
-      scale: [0.95, 1, 1.05],            // Optional slight zoom effect for life-like movement
+      y: ["100%", "0%", "-100%"],        // Upward motion: from bottom → center → exit top
+      opacity: [0, 1, 0],                // Fade in at center, fade out at top
+      scale: [0.95, 1, 1.05],            // Optional slight zoom for a natural feel
     },
   };
 
@@ -36,19 +35,19 @@ export default function Project1() {
           Feat
         </motion.span>
 
-        {/* Infinite Floating Images */}
+        {/* Floating Images (Fixed Sizing and Animation) */}
         <div className="relative w-100 h-100 overflow-hidden">
           {images.map((img, index) => (
             <motion.img
               key={index}
               src={img}
               alt={`image${index}`}
-              className="absolute top-0 left-0 w-full h-full object-cover rounded-xl shadow-xl"
+              className="absolute top-0 left-0 w-full h-full object-cover  shadow-xl"
               variants={variants}
               animate="animate"
               transition={{
-                duration: 5,
-                delay: index * (5 / images.length), // Perfect stagger
+                duration: 6,
+                delay: index * (6 / images.length), // Evenly staggered
                 repeat: Infinity,
                 repeatType: "loop",
                 ease: "easeInOut",
